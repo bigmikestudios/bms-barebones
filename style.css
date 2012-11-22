@@ -1,0 +1,49 @@
+/*
+Theme Name: BMS Barebones
+Theme URI: http://bigmikestudios.com
+Author: BigMike Studios
+Author URI: http://bigmikestudios.com
+Description: A Starter Barebones Theme - Just index.php, configured to work with Twitter Bootstrap and Superfish.
+Version: 1
+Text Domain: bms-barebones
+
+.navigation .menu > ul {
+	margin: 0;
+}
+.navigation .menu > ul > li {
+	display: inline;
+	padding: 20px;
+}
+.navigation .menu > ul > li ul {
+	display: none;
+}*/
+
+/* SUCKERFISH 
+.menu > ul, .menu > ul ul { 
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	line-height: 1;
+}
+
+.menu > ul a {
+	display: block;
+	width: 10em;
+}
+
+.menu > ul li { 
+	float: left;
+	width: 10em; 
+}
+
+.menu > ul li ul { 
+	position: absolute;
+	background: orange;
+	width: 10em;
+	left: -999em; 
+}
+
+.menu > ul li:hover ul, .menu > ul li.sfhover ul { 
+	left: auto;
+}
+*/
