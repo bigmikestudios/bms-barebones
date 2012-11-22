@@ -52,4 +52,20 @@ add_action('wp_enqueue_scripts', 'my_scripts_method');
 
 // =============================================================================
 
+//////////////////////////
+//
+// WIDGETS
+//
+//////////////////////////
+
+// =============================================================================
+
+register_sidebar(array(
+  'name' => __( 'Right Hand Sidebar' ),
+  'id' => 'right-sidebar',
+  'description' => __( 'Widgets in this area will be shown on the right-hand side.' ),
+  'before_title' => '<h3>',
+  'after_title' => '</h3>'
+));
+
 ?>

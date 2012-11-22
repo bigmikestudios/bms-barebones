@@ -107,7 +107,11 @@ body {
     <?php the_content(); ?>
     <?php endwhile; ?>
     </div>
-    <div class="span4"> Sidebar</div>
+    <div class="span4">
+    <?php
+      if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('right-sidebar') ) :
+      endif; ?>
+    </div>
   </div>
   <div class="row">
     <footer>
