@@ -19,7 +19,7 @@ function my_wp_print_styles() {
 	wp_register_style('bootstrap-responsive', $stylesheet_dir.'/bootstrap/css/bootstrap-responsive.min.css');
 	wp_enqueue_style('bootstrap-responsive');
 	
-    wp_register_style( 'superfish-css', $stylesheet_dir.'/css/superfish.css', false, '1.4.8');
+    wp_register_style( 'superfish-css', $stylesheet_dir.'/superfish/superfish.css', false, '1.4.8');
     wp_enqueue_style('superfish-css');
 
 }
@@ -33,10 +33,16 @@ function my_scripts_method() {
     wp_enqueue_script( 'jquery' );
 	
 	wp_register_script( 'bootstrap', $stylesheet_dir.'/bootstrap/js/bootstrap.min.js');
-    wp_enqueue_script( 'bootstrap' );	
+    wp_enqueue_script( 'bootstrap' );
 	
-	wp_register_script( 'superfish', $stylesheet_dir.'/js/superfish.js', false, '1.4.8');
+	wp_register_script( 'hoverintent', $stylesheet_dir.'/js/jquery.hoverIntent.minified.js', false, '1.4.8');
+    wp_enqueue_script('hoverintent');	
+	
+	wp_register_script( 'superfish', $stylesheet_dir.'/superfish/superfish.js', false, '1.4.8');
     wp_enqueue_script('superfish');
+	
+	wp_register_script( 'supersubs', $stylesheet_dir.'/superfish/supersubs.js', false, '1.4.8');
+    wp_enqueue_script('supersubs');
 	
 	wp_register_script( 'script', $stylesheet_dir.'/js/script.js');
     wp_enqueue_script( 'script' );
