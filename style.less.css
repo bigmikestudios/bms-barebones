@@ -3,8 +3,9 @@ Theme Name: BMS Barebones
 Theme URI: http://bigmikestudios.com
 Author: BigMike Studios
 Author URI: http://bigmikestudios.com
-Description: A Starter Barebones Theme - Just index.php, configured to work with Twitter Bootstrap and Superfish.
+Description: A Starter Barebones Theme - Just index.php, configured to work with Twitter Bootstrap, Superfish and less.css.
 Version: 1
 Text Domain: bms-barebones
 */
-* { color:pink; }
+* { color:#666; };
+

@@ -88,7 +88,7 @@ body {
   <div class="container">
     <div class="row">
       <div class="span12">
-      	<?php
+        <?php
 			 wp_nav_menu( array(
 				'theme_location' => 'main-menu', // Setting up the location for the main-menu, Main Navigation.
 				'menu_class' => 'sf-menu', //Adding the class for dropdowns
@@ -102,13 +102,13 @@ body {
 </div>
 <div class="container">
   <div class="row">
-    <div class="span8"> 
-    <?php while ( have_posts() ) : the_post(); ?>
-    <?php the_content(); ?>
-    <?php endwhile; ?>
+    <div class="span8">
+      <?php while ( have_posts() ) : the_post(); ?>
+      <?php the_content(); ?>
+      <?php endwhile; ?>
     </div>
     <div class="span4">
-    <?php
+      <?php
       if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('right-sidebar') ) :
       endif; ?>
     </div>
