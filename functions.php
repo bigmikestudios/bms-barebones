@@ -1,5 +1,39 @@
 <?php
 
+// Set the theme path to a constant
+$url = get_bloginfo("template_url");
+$temp = explode("wp-content/themes/",$url);
+$active_theme_name = $temp[1];	// The second value will be the theme name
+$theme_path =get_theme_root()."/".$active_theme_name;
+define('THEME_PATH', $theme_path);
+
+//////////////////////////
+//
+// LESS.CSS
+//
+//////////////////////////
+
+// =============================================================================
+
+// compile less
+// only if we aren't in admin:
+if ( is_admin() or (in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php', 'xmlrpc.php' ) ) ) ) {
+	// silence is golden
+} else {
+	require 'inc/lessc.inc.php';
+	
+	try {
+		// lessc::ccompile(THEME_PATH.'/style.less.css', THEME_PATH.'/style.css');
+		$less = new lessc;
+		$less->setPreserveComments(true);
+		$less->checkedCompile(THEME_PATH.'/style.less.css', THEME_PATH.'/style.css');
+	} catch (exception $ex) {
+		exit('lessc fatal error:<br />'.$ex->getMessage());
+	}
+}
+
+// =============================================================================
+
 //////////////////////////
 //
 // HOOKS and FILTERS

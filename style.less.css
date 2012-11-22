@@ -7,6 +7,4 @@ Description: A Starter Barebones Theme - Just index.php, configured to work with
 Version: 1
 Text Domain: bms-barebones
 */
-* {
-  color: pink;
-}
+* { color:pink; }
