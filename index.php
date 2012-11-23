@@ -39,14 +39,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-
-<!-- Le styles -->
-<style>
-body {
-	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-}
-</style>
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -73,6 +65,7 @@ body {
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 </head>
 
 <body>
@@ -102,12 +95,12 @@ body {
 </div>
 <div class="container">
   <div class="row">
-    <div class="span8">
+    <div class="span8 logo">
       <?php while ( have_posts() ) : the_post(); ?>
       <?php the_content(); ?>
       <?php endwhile; ?>
     </div>
-    <div class="span4">
+    <div class="span4 call-to-action">
       <?php
       if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('right-sidebar') ) :
       endif; ?>
