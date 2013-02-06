@@ -95,12 +95,12 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="span8 logo">
+    <div class="span8 content">
       <?php while ( have_posts() ) : the_post(); ?>
       <?php the_content(); ?>
       <?php endwhile; ?>
     </div>
-    <div class="span4 call-to-action">
+    <div class="span4 sidebar">
       <?php
       if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('right-sidebar') ) :
       endif; ?>
