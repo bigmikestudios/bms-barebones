@@ -13,7 +13,6 @@ $temp = explode("wp-content/themes/",$url);
 $active_theme_name = $temp[1];	// The second value will be the theme name
 $theme_path =get_theme_root()."/".$active_theme_name."/";
 define('THEME_PATH', $theme_path);
-define('WP_DEBUG', true);
 
 // =============================================================================
 
