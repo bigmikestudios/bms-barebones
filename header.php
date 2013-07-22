@@ -40,9 +40,8 @@
   <div class="frame">
       <div id="menu" class="menu nav-collapse collapse width hidden-desktop">
         <div class="collapse-inner">
-          <div class="navbar navbar-inverse">
-            <div class="navbar-inner"> Menu </div>
-          </div>
+          
+          <div class="navbar-content">
           <?php
              wp_nav_menu( array(
               'theme_location' => 'main-menu', // Setting up the location for the main-menu, Main Navigation.
@@ -51,6 +50,7 @@
               )
             );
           ?>
+          </div>
         </div>
       </div>
       <div class="view">
@@ -59,29 +59,27 @@
             <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#menu"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
           </div>
         </div>
-        <div id="content">
+        <div id="view-content">
           <div class="container">
-          <header>
-            <div class="container">
-              <div class="row">
-                <div class="span8"> Logo </div>
-                <div class="span4"> Call to action </div>
-              </div>
-            </div>
-          </header>
-          <div class="navigation visible-desktop">
-            <div class="container">
-              <div class="row">
-                <div class="span12">
-                  <?php
-                     wp_nav_menu( array(
-                      'theme_location' => 'main-menu', // Setting up the location for the main-menu, Main Navigation.
-                      'menu_class' => 'sf-menu', //Adding the class for dropdowns
-                      'fallback_cb' => 'wp_page_menu', //if wp_nav_menu is unavailable, WordPress displays wp_page_menu function, which displays the pages of your blog.
-                      )
-                    );
-                  ?>
+            <header>
+                <div class="row">
+                  <div class="span8"> Logo </div>
+                  <div class="span4"> Call to action </div>
+                </div>
+            </header>
+            <div class="navigation visible-desktop">
+              <div class="container">
+                <div class="row">
+                  <div class="span12">
+                    <?php
+                       wp_nav_menu( array(
+                        'theme_location' => 'main-menu', // Setting up the location for the main-menu, Main Navigation.
+                        'menu_class' => 'sf-menu', //Adding the class for dropdowns
+                        'fallback_cb' => 'wp_page_menu', //if wp_nav_menu is unavailable, WordPress displays wp_page_menu function, which displays the pages of your blog.
+                        )
+                      );
+                    ?>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>

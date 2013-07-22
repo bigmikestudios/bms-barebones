@@ -6,6 +6,7 @@
             </div>
             <!-- /container -->
           </div>
+          <!-- /view-content -->
         </div>
       </div>
     </div>

@@ -84,14 +84,6 @@ body .viewport .frame .menu .collapse-inner {
   width: 250px;
   height: 100%; 
 }
-
-body .viewport .frame .menu .navbar .navbar-inner {
-  text-align: center;
-  color: grey;
-  font-size: 1.2em;
-  line-height: 38px; 
-}
-
 body .viewport .frame .menu .nav-stacked {
   padding: 0 10px; 
 }
@@ -99,7 +91,7 @@ body .viewport .frame .menu .nav-stacked {
 body .viewport .frame .view {
   width: 50%;
   height: 100%;
-  overflow: hidden; 
+  //overflow: hidden; 
 }
 
 body .viewport .frame .view .navbar .navbar-inner .btn-navbar {
@@ -107,8 +99,20 @@ body .viewport .frame .view .navbar .navbar-inner .btn-navbar {
   float: left; 
 }
 
-body .viewport .frame .view #content {
+body .viewport .frame .view #view-content {
   margin: auto 15px;
   text-align: justify; 
+}
+
+.view, .collapse-inner {
+  height: 100%;
+  overflow: auto;
+}
+.navbar, .navbar-inner {
+  position: absolute;
+  width: 100%;
+}
+#view-content {
+  padding-top: 42px;
 }
 /* END SLIDER MENU FOR MOBILE ================================ */
