@@ -14,7 +14,6 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <title>
-<?php bloginfo('name'); ?>
 <?php wp_title(); ?>
 </title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,50 +35,42 @@
 </head>
 
 <body>
-<div class="viewport">
-  <div class="frame">
-      <div id="menu" class="menu nav-collapse collapse width hidden-desktop">
-        <div class="collapse-inner">
-          
-          <div class="navbar-content">
-          <?php
-             wp_nav_menu( array(
-              'theme_location' => 'main-menu', // Setting up the location for the main-menu, Main Navigation.
-              'menu_class' => 'nav nav-tabs nav-stacked', //Adding the class for dropdowns
-              'fallback_cb' => 'wp_page_menu', //if wp_nav_menu is unavailable, WordPress displays wp_page_menu function, which displays the pages of your blog.
-              )
+
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="<?php bloginfo('url'); ?>">
+                <?php bloginfo('name'); ?>
+            </a>
+        </div>
+
+        <?php
+            wp_nav_menu( array(
+                'menu'              => 'primary-menu',
+                'theme_location'    => 'primary-menu',
+                'depth'             => 2,
+                'container'         => 'div',
+                'container_class'   => 'collapse navbar-collapse navbar-ex1-collapse',
+                'menu_class'        => 'nav navbar-nav',
+                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                'walker'            => new wp_bootstrap_navwalker())
             );
-          ?>
-          </div>
-        </div>
-      </div>
-      <div class="view">
-        <div class="navbar navbar-inverse  hidden-desktop">
-          <div class="navbar-inner">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#menu"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          </div>
-        </div>
-        <div id="view-content">
-          <div class="container">
-            <header>
-                <div class="row">
-                  <div class="span8"> Logo </div>
-                  <div class="span4"> Call to action </div>
-                </div>
-            </header>
-            <div class="navigation visible-desktop">
-              <div class="container">
-                <div class="row">
-                  <div class="span12">
-                    <?php
-                       wp_nav_menu( array(
-                        'theme_location' => 'main-menu', // Setting up the location for the main-menu, Main Navigation.
-                        'menu_class' => 'sf-menu', //Adding the class for dropdowns
-                        'fallback_cb' => 'wp_page_menu', //if wp_nav_menu is unavailable, WordPress displays wp_page_menu function, which displays the pages of your blog.
-                        )
-                      );
-                    ?>
-                  </div>
-                </div>
-              </div>
-            </div>
+        ?>
+    </div>
+</nav>
+
+<div class="container">
+<header>
+  <div class="row">
+    <div class="col-md-8"> Logo </div>
+    <div class="col-md-4"> Call to action </div>
+  </div>
+</header>

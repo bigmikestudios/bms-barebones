@@ -1,6 +1,6 @@
 <?php get_header(); ?>
   <div class="row">
-    <div class="span8 content">
+    <div class="col-md-8 content">
       <?php
 			// Pagination:
 			global $wp_query;
@@ -19,10 +19,12 @@
         	<hr/>
       <?php endwhile; ?>
     </div>
-    <div class="span4 sidebar">
+    <div class="col-md-4 sidebar">
+      <ul>
       <?php
       if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('right-sidebar') ) :
       endif; ?>
+      </ul>
     </div>
   </div>
 <?php get_footer(); ?>

@@ -14,6 +14,9 @@ $active_theme_name = $temp[1];	// The second value will be the theme name
 $theme_path =get_theme_root()."/".$active_theme_name."/";
 define('THEME_PATH', $theme_path);
 
+add_theme_support( 'menus');
+require 'inc/wp_bootstrap_navwalker.php';
+
 // =============================================================================
 
 //////////////////////////
@@ -58,12 +61,6 @@ function my_wp_print_styles() {
 	
 	wp_register_style('bootstrap', $stylesheet_dir.'/bootstrap/css/bootstrap.min.css');
 	wp_enqueue_style('bootstrap');
-	
-	wp_register_style('bootstrap-responsive', $stylesheet_dir.'/bootstrap/css/bootstrap-responsive.min.css');
-	wp_enqueue_style('bootstrap-responsive');
-	
-    wp_register_style( 'superfish-css', $stylesheet_dir.'/superfish/superfish.css', false, '1.4.8');
-    wp_enqueue_style('superfish-css');
 
 }
 
@@ -71,27 +68,27 @@ function my_wp_print_styles() {
 
 // add scripts
 function my_scripts_method() {
-	$stylesheet_dir = get_bloginfo('stylesheet_directory');
-	
-    wp_enqueue_script( 'jquery' );
-	
-	wp_register_script( 'bootstrap', $stylesheet_dir.'/bootstrap/js/bootstrap.min.js');
-    wp_enqueue_script( 'bootstrap' );
-	
-	wp_register_script( 'hoverintent', $stylesheet_dir.'/js/jquery.hoverIntent.minified.js', false, '1.4.8');
-    wp_enqueue_script('hoverintent');	
-	
-	wp_register_script( 'superfish', $stylesheet_dir.'/superfish/superfish.js', false, '1.4.8');
-    wp_enqueue_script('superfish');
-	
-	wp_register_script( 'supersubs', $stylesheet_dir.'/superfish/supersubs.js', false, '1.4.8');
-    wp_enqueue_script('supersubs');
-	
-	wp_register_script( 'script', $stylesheet_dir.'/js/script.js');
-    wp_enqueue_script( 'script' );
+  $stylesheet_dir = get_bloginfo('stylesheet_directory');
+  
+  wp_enqueue_script( 'jquery' );
+  
+  wp_register_script( 'bootstrap', $stylesheet_dir.'/bootstrap/js/bootstrap.min.js');
+  wp_enqueue_script( 'bootstrap' );
+  
+  wp_register_script( 'script', $stylesheet_dir.'/js/script.js');
+  wp_enqueue_script( 'script' );
 }    
  
 add_action('wp_enqueue_scripts', 'my_scripts_method');
+
+// register wp_nav_menu
+add_action( 'init', 'register_my_menus' );
+function register_my_menus() {
+	register_nav_menus( array(
+	'primary-menu' => 'Primary Menu'
+	)
+	);
+}
 
 // =============================================================================
 

@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div class="row">
-  <div class="span8 content">
+  <div class="col-md-8 content">
     <?php if ( have_posts() ) : ?>
         <h1>Search Results for
           <?php the_search_query(); ?>
@@ -32,10 +32,12 @@
     		<?php get_search_form(); ?>
    		 <?php endif; ?>
   </div>
-  <div class="span4 sidebar">
+  <div class="col-md-4 sidebar">
+    <ul>
     <?php
       if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('right-sidebar') ) :
       endif; ?>
+    </ul>
   </div>
 </div>
 <?php get_footer(); ?>
