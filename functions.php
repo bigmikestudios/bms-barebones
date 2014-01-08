@@ -5,6 +5,35 @@
 //
 //////////////////////////
 
+// OPTION TREE
+
+/**
+ * Optional: set 'ot_show_pages' filter to false.
+ * This will hide the settings & documentation pages.
+ */
+add_filter( 'ot_show_pages', '__return_false' );
+
+/**
+ * Optional: set 'ot_show_new_layout' filter to false.
+ * This will hide the "New Layout" section on the Theme Options page.
+ */
+add_filter( 'ot_show_new_layout', '__return_false' );
+
+/**
+ * Required: set 'ot_theme_mode' filter to true.
+ */
+add_filter( 'ot_theme_mode', '__return_true' );
+
+/**
+ * Required: include OptionTree.
+ */
+load_template( trailingslashit( get_template_directory() ) . 'option-tree/ot-loader.php' );
+
+/**
+ * Theme Options
+ */
+load_template( trailingslashit( get_template_directory() ) . 'inc/theme-options.php' );
+
 // =============================================================================
 
 // Set the theme path to a constant
@@ -35,10 +64,27 @@ if ( is_admin() or (in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-re
 	require 'inc/lessc.inc.php';
 	
 	try {
+    
+    $inputFile = THEME_PATH.'style.less';
+    $outputFile = THEME_PATH.'style.css';
+    
 		// lessc::ccompile(THEME_PATH.'/style.less.css', THEME_PATH.'/style.css');
 		$less = new lessc;
 		$less->setPreserveComments(true);
-		$less->checkedCompile(THEME_PATH.'style.less.css', THEME_PATH.'style.css');
+		//$less->checkedCompile(THEME_PATH.'style.less.css', THEME_PATH.'style.css');
+
+    // create a new cache object, and compile
+    $cache = $less->cachedCompile($inputFile);
+    
+    file_put_contents($outputFile, $cache["compiled"]);
+    
+    // the next time we run, write only if it has updated
+    $last_updated = $cache["updated"];
+    $cache = $less->cachedCompile($cache);
+    if ($cache["updated"] > $last_updated) {
+        file_put_contents($outputFile, $cache["compiled"]);
+    }
+
 	} catch (exception $ex) {
 		exit('lessc fatal error:<br />'.$ex->getMessage());
 	}
