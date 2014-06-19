@@ -32,7 +32,6 @@
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-
 <?php /*
 <!-- OFF CANVAS NAV STUFF -->
 <!--[if (gt IE 8) | (IEMobile)]><!-->
@@ -59,7 +58,9 @@
   </header>
   <nav id="nav" role="navigation">
     <div class="block">
-      <h2 class="block-title"><?php the_title(); ?></h2>
+      <h2 class="block-title">
+        <?php the_title(); ?>
+      </h2>
       <!-- <p><a href="<?php echo site_url(); ?>">HOME</a></p>-->
       <?php 
             wp_nav_menu( array(
@@ -72,24 +73,15 @@
       <a class="close-btn" id="nav-close-btn" href="#top"><span class="glyphicon glyphicon-remove-circle"></span></a> </div>
   </nav>
 </div>
-
-<nav class="navbar navbar-default navbar-static-top hidden-xs hidden-sm" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand" href="<?php bloginfo('url'); ?>">
-                <?php bloginfo('name'); ?>
-            </a>
-        </div>
-
-        <?php
+<nav class="navbar navbar-default navbar-static-top hidden-xs hidden-sm" role="navigation"> 
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" href="<?php bloginfo('url'); ?>">
+      <?php bloginfo('name'); ?>
+      </a> </div>
+    <?php
             wp_nav_menu( array(
                 'menu'              => 'primary-menu',
                 'theme_location'    => 'primary-menu',
@@ -101,13 +93,15 @@
                 'walker'            => new wp_bootstrap_navwalker())
             );
         ?>
-    </div>
-</nav>
-
-<div class="container">
-<header>
-  <div class="row">
-    <div class="col-md-8"> Logo </div>
-    <div class="col-md-4"> Call to action </div>
   </div>
-</header>
+</nav>
+<div class="strata strata-header">
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8"> Logo </div>
+        <div class="col-md-4"> Call to action </div>
+      </div>
+    </div>
+  </header>
+</div>

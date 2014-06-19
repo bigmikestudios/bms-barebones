@@ -1,11 +1,12 @@
-  <div class="row">
-    <footer>
-      <div class="col-md-12">Footer </div>
-    </footer>
+<div class="strata strata-footer">
+  <div class="container">
+    <div class="row">
+      <footer>
+        <div class="col-md-12">Footer </div>
+      </footer>
+    </div>
   </div>
 </div>
-<!-- /container -->
-<?php wp_footer(); ?>
 
 <!-- OFF CANVAS MENU WRAPPERS... -->
 </div>
@@ -20,5 +21,6 @@
   </div>
 </div>
 
-</body>
-</html>
+<?php wp_footer(); ?>
+
+</body></html>
