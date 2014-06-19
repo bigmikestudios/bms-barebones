@@ -1,6 +1,6 @@
 /Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/less/style.less
 /Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/bootstrap/less/bootstrap.less
-/Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/bootstrap/less/variables.less
+/Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/bootstrap/less/bms-variables.less
 /Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/bootstrap/less/mixins.less
 /Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/bootstrap/less/normalize.less
 /Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/bootstrap/less/print.less
@@ -39,4 +39,5 @@
 /Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/bootstrap/less/utilities.less
 /Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/bootstrap/less/responsive-utilities.less
 /Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/less/style.variables.less
-lessphp_87598be1b4bad5900f7da9a7dc790e23bc7431c3.css
+/Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/less/style.off-canvas-menu.less
+lessphp_22c5f7341192f8e8ca36d43649bd52c541c3500f.css

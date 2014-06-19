@@ -108,6 +108,12 @@ function my_scripts_method() {
   wp_register_script( 'bootstrap', $stylesheet_dir.'/bootstrap/js/bootstrap.min.js');
   wp_enqueue_script( 'bootstrap' );
   
+  wp_register_script( 'modernizr', $stylesheet_dir.'/js/modernizr.js');
+  wp_enqueue_script( 'modernizr' );
+  
+  wp_register_script( 'off-canvas-menu', $stylesheet_dir.'/off-canvas-menu/js/main.js', array(), '', true);
+  wp_enqueue_script( 'off-canvas-menu' );
+  
   wp_register_script( 'script', $stylesheet_dir.'/js/script.js');
   wp_enqueue_script( 'script' );
 }    

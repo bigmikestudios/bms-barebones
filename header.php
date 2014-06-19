@@ -32,11 +32,48 @@
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+
+<?php /*
+<!-- OFF CANVAS NAV STUFF -->
+<!--[if (gt IE 8) | (IEMobile)]><!-->
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/off-canvas-menu/css/partone.css">
+<!--<![endif]-->
+<!--[if (lt IE 9) & (!IEMobile)] >
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/off-canvas-menu/css/ie.css">
+<![endif]-->
+<!--- END OFF CANVAS NAV STUFF -->
+*/ ?>
 </head>
 
-<body>
+<body <?php body_class(); ?>>
+<!-- OFF CANVAS MENU WRAPPERS... -->
+<div id="outer-wrap">
+<div id="inner-wrap">
+<!-- END OFF CANVAS MENU WRAPPERS -->
 
-<nav class="navbar navbar-default navbar-static-top" role="navigation">
+<div class="strata nav-strata-mobile visible-xs visible-sm">
+  <header id="top" role="banner">
+    <div class="block">
+      <h1 class="block-title"><a class="logo" href="<?php echo site_url(); ?>"><span><?php echo bloginfo('site_title'); ?></span></a></h1>
+      <a class="nav-btn" id="nav-open-btn" href="#nav"><span class="glyphicon glyphicon-align-justify"></span></a> </div>
+  </header>
+  <nav id="nav" role="navigation">
+    <div class="block">
+      <h2 class="block-title"><?php the_title(); ?></h2>
+      <!-- <p><a href="<?php echo site_url(); ?>">HOME</a></p>-->
+      <?php 
+            wp_nav_menu( array(
+                'menu'              => 'primary-menu',
+                'theme_location'    => 'primary-menu',
+                'depth'             => 2,
+                )
+            );
+            ?>
+      <a class="close-btn" id="nav-close-btn" href="#top"><span class="glyphicon glyphicon-remove-circle"></span></a> </div>
+  </nav>
+</div>
+
+<nav class="navbar navbar-default navbar-static-top hidden-xs hidden-sm" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="container">
         <div class="navbar-header">

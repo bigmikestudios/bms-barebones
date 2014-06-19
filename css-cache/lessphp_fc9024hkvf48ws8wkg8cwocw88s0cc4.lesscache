@@ -1,0 +1,63 @@
+<?php return  Array(0 =>  new Less_Tree_Comment('/* CSS Document */
+',false,19, Array('entryPath' => '/Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/less/','entryUri' => '/less/style-less.css/','rootpath' => '/Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/less/','currentDirectory' => '/Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/less/','currentUri' => '/less/style-less.css/style.off-canvas-menu.less','filename' => '/Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/less/style.off-canvas-menu.less','uri_root' => '/less/style-less.css/',)),1 =>  new Less_Tree_Comment('/*
+.strata.nav-strata-mobile {
+  margin-bottom: 40px;
+  header#top { 
+     height: 50px; 
+     h1.block-title { 
+        text-align: right; padding: 0 20px 20px 20px; 
+        a {
+           
+          display: block;
+          float: right;
+          width: 220px; height: 45px;
+          
+          //background-image:url(img/header-logo-partone.png);
+          //background-repeat: no-repeat;
+          //background-size: contain;
+          //background-position: top right;
+          //text-indent:20px;
+          //span { display: none; }
+          
+        }
+     }
+     a.nav-btn { 
+      //background: url(img/Control-Menu.svg);
+      //background-position: center left;
+      background-size: contain;
+      width: 100px;
+      background-repeat: no-repeat;
+      opacity: 1;
+      left: 15px;
+      top: 9px;
+     }
+  }
+  nav#nav {
+    padding-top: 50px; 
+    a.close-btn {
+      top: -40px;
+      //background-image: url(img/close-white.svg);
+    }
+  }
+}
+
+.back-to-top {
+  .back-to-top-outer {
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+    width: 100%;
+    a {
+      display: block;
+      // background: url(img/Control-Back-to-Top.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 15px auto;
+      //text-indent: -9999px;
+    }
+  }
+}
+*/
+',false,1365, Array('entryPath' => '/Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/less/','entryUri' => '/less/style-less.css/','rootpath' => '/Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/less/','currentDirectory' => '/Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/less/','currentUri' => '/less/style-less.css/style.off-canvas-menu.less','filename' => '/Users/mikelathrop/Dropbox/1work/wwwroot/hgwp.bigmikestudios.com/wp-content/themes/bms-barebones/less/style.off-canvas-menu.less','uri_root' => '/less/style-less.css/',)),); ?>
