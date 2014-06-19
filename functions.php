@@ -1,11 +1,31 @@
 <?php
+// =============================================================================
+
 //////////////////////////
 //
 // THEME CONFIGURATION & CONSTANTS
 //
 //////////////////////////
 
+// =============================================================================
+
+// INCLUDES
+// for bootstrap type nav...
+require 'inc/wp_bootstrap_navwalker.php';
+
+// This old thing...
+add_theme_support( 'menus');
+
+
+// =============================================================================
+
+//////////////////////////
+//
 // OPTION TREE
+//
+//////////////////////////
+
+// =============================================================================
 
 /**
  * Optional: set 'ot_show_pages' filter to false.
@@ -36,18 +56,6 @@ load_template( trailingslashit( get_template_directory() ) . 'inc/theme-options.
 
 // =============================================================================
 
-// Set the theme path to a constant
-$url = get_bloginfo("template_url");
-$temp = explode("wp-content/themes/",$url);
-$active_theme_name = $temp[1];	// The second value will be the theme name
-$theme_path =get_theme_root()."/".$active_theme_name."/";
-define('THEME_PATH', $theme_path);
-
-add_theme_support( 'menus');
-require 'inc/wp_bootstrap_navwalker.php';
-
-// =============================================================================
-
 //////////////////////////
 //
 // LESS.CSS
@@ -61,17 +69,34 @@ require 'inc/wp_bootstrap_navwalker.php';
 if ( is_admin() or (in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php', 'xmlrpc.php' ) ) ) ) {
 	// silence is golden
 } else {
+  
+  
+  require 'less.php/Cache.php';
+  Less_Cache::$cache_dir = get_template_directory().'/cache';
+  
+  $files = array();
+  $files[get_template_directory().'/css/style.less'] = '/css/style-less.css';
+  
+  $css_file_name = Less_Cache::Get( $files );
+  
+  $css_file_uri = get_stylesheet_directory_uri().'/cache/'.$css_file_name;
+  
+	wp_enqueue_style('style-less', $css_file_uri);
+ 
+}
+
+//die($css_file_name);
+
+
+  /*
 	require 'inc/lessc.inc.php';
 	
 	try {
     
-    $inputFile = THEME_PATH.'style.less';
-    $outputFile = THEME_PATH.'style.css';
+    $inputFile = get_template_directory().'/style.less';
+    $outputFile = get_template_directory().'/css/style-less.css';
     
-		// lessc::ccompile(THEME_PATH.'/style.less.css', THEME_PATH.'/style.css');
 		$less = new lessc;
-		$less->setPreserveComments(true);
-		//$less->checkedCompile(THEME_PATH.'style.less.css', THEME_PATH.'style.css');
 
     // create a new cache object, and compile
     $cache = $less->cachedCompile($inputFile);
@@ -88,7 +113,7 @@ if ( is_admin() or (in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-re
 	} catch (exception $ex) {
 		exit('lessc fatal error:<br />'.$ex->getMessage());
 	}
-}
+  */
 
 // =============================================================================
 
@@ -100,17 +125,12 @@ if ( is_admin() or (in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-re
 
 // =============================================================================
 
-// add stylesheets
-add_action('wp_print_styles', 'my_wp_print_styles');
-function my_wp_print_styles() {
-	$stylesheet_dir = get_bloginfo('stylesheet_directory');
-	
-	wp_register_style('bootstrap', $stylesheet_dir.'/bootstrap/css/bootstrap.min.css');
-	wp_enqueue_style('bootstrap');
 
-}
 
 // =============================================================================
+
+
+  
 
 // add scripts
 function my_scripts_method() {
