@@ -70,50 +70,24 @@ if ( is_admin() or (in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-re
 	// silence is golden
 } else {
   
-  
   require 'less.php/Cache.php';
-  Less_Cache::$cache_dir = get_template_directory().'/cache';
+  Less_Cache::$cache_dir = get_template_directory().'/css-cache';
   
   $files = array();
-  $files[get_template_directory().'/css/style.less'] = '/css/style-less.css';
+  $files[get_template_directory().'/less/style.less'] = '/less/style-less.css';
   
   $css_file_name = Less_Cache::Get( $files );
   
-  $css_file_uri = get_stylesheet_directory_uri().'/cache/'.$css_file_name;
+  global $css_file_uri;
+  $css_file_uri = get_stylesheet_directory_uri().'/css-cache/'.$css_file_name;
   
-	wp_enqueue_style('style-less', $css_file_uri);
+  function my_styles_method() {
+    global $css_file_uri;
+	  wp_enqueue_style('style-less', $css_file_uri);
+  }
+  add_action('wp_enqueue_scripts', 'my_styles_method');
  
 }
-
-//die($css_file_name);
-
-
-  /*
-	require 'inc/lessc.inc.php';
-	
-	try {
-    
-    $inputFile = get_template_directory().'/style.less';
-    $outputFile = get_template_directory().'/css/style-less.css';
-    
-		$less = new lessc;
-
-    // create a new cache object, and compile
-    $cache = $less->cachedCompile($inputFile);
-    
-    file_put_contents($outputFile, $cache["compiled"]);
-    
-    // the next time we run, write only if it has updated
-    $last_updated = $cache["updated"];
-    $cache = $less->cachedCompile($cache);
-    if ($cache["updated"] > $last_updated) {
-        file_put_contents($outputFile, $cache["compiled"]);
-    }
-
-	} catch (exception $ex) {
-		exit('lessc fatal error:<br />'.$ex->getMessage());
-	}
-  */
 
 // =============================================================================
 
@@ -123,14 +97,7 @@ if ( is_admin() or (in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-re
 //
 //////////////////////////
 
-// =============================================================================
-
-
-
-// =============================================================================
-
-
-  
+// ============================================================================= 
 
 // add scripts
 function my_scripts_method() {
@@ -144,7 +111,6 @@ function my_scripts_method() {
   wp_register_script( 'script', $stylesheet_dir.'/js/script.js');
   wp_enqueue_script( 'script' );
 }    
- 
 add_action('wp_enqueue_scripts', 'my_scripts_method');
 
 // register wp_nav_menu
