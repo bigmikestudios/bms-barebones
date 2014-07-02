@@ -7,61 +7,7 @@
  * @copyright Copyright (c) 2013, Derek Herman
  * @since     2.0
  */
-
-/**
- * Theme Options ID
- *
- * @return    string
- *
- * @access    public
- * @since     2.3.0
- */
-if ( ! function_exists( 'ot_options_id' ) ) {
-
-  function ot_options_id() {
-    
-    return apply_filters( 'ot_options_id', 'option_tree' );
-    
-  }
-  
-}
-
-/**
- * Theme Settings ID
- *
- * @return    string
- *
- * @access    public
- * @since     2.3.0
- */
-if ( ! function_exists( 'ot_settings_id' ) ) {
-
-  function ot_settings_id() {
-    
-    return apply_filters( 'ot_settings_id', 'option_tree_settings' );
-    
-  }
-  
-}
-
-/**
- * Theme Layouts ID
- *
- * @return    string
- *
- * @access    public
- * @since     2.3.0
- */
-if ( ! function_exists( 'ot_layouts_id' ) ) {
-
-  function ot_layouts_id() {
-    
-    return apply_filters( 'ot_layouts_id', 'option_tree_layouts' );
-    
-  }
-  
-}
-
+      
 /**
  * Get Option.
  *
@@ -80,7 +26,7 @@ if ( ! function_exists( 'ot_get_option' ) ) {
   function ot_get_option( $option_id, $default = '' ) {
     
     /* get the saved options */ 
-    $options = get_option( ot_options_id() );
+    $options = get_option( 'option_tree' );
     
     /* look for the saved value */
     if ( isset( $options[$option_id] ) && '' != $options[$option_id] ) {
@@ -91,29 +37,6 @@ if ( ! function_exists( 'ot_get_option' ) ) {
     
     return $default;
     
-  }
-  
-}
-
-/**
- * Echo Option. (via Github @joshlevinson)
- *
- * Helper function to echo the option value.
- * If no value has been saved, it echos $default.
- *
- * @param     string    The option ID.
- * @param     string    The default option value.
- * @return    mixed
- *
- * @access    public
- * @since     2.2.0
- */
-if ( ! function_exists( 'ot_echo_option' ) ) {
-  
-  function ot_echo_option( $option_id, $default = '' ) {
-    
-    echo ot_get_option( $option_id, $default );
-  
   }
   
 }
@@ -135,7 +58,7 @@ if ( ! function_exists( 'ot_wpml_filter' ) ) {
     // Return translated strings using WMPL
     if ( function_exists('icl_t') ) {
       
-      $settings = get_option( ot_settings_id() );
+      $settings = get_option( 'option_tree_settings' );
       
       if ( isset( $settings['settings'] ) ) {
       
@@ -143,26 +66,6 @@ if ( ! function_exists( 'ot_wpml_filter' ) ) {
           
           // List Item & Slider
           if ( $option_id == $setting['id'] && in_array( $setting['type'], array( 'list-item', 'slider' ) ) ) {
-          
-            foreach( $options[$option_id] as $key => $value ) {
-          
-              foreach( $value as $ckey => $cvalue ) {
-                
-                $id = $option_id . '_' . $ckey . '_' . $key;
-                $_string = icl_t( 'Theme Options', $id, $cvalue );
-                
-                if ( ! empty( $_string ) ) {
-                
-                  $options[$option_id][$key][$ckey] = $_string;
-                  
-                }
-                
-              }
-            
-            }
-          
-          // List Item & Slider
-          } else if ( $option_id == $setting['id'] && $setting['type'] == 'social-links' ) {
           
             foreach( $options[$option_id] as $key => $value ) {
           
@@ -238,7 +141,7 @@ if ( ! function_exists( 'ot_load_dynamic_css' ) ) {
           
           if ( isset( $parts[1] ) ) {
             
-            $css = set_url_scheme( WP_CONTENT_URL ) . $parts[1];
+            $css = home_url( '/wp-content' . $parts[1] );
             
             if ( $last_css !== $css ) {
               

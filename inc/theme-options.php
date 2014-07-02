@@ -36,6 +36,7 @@ function custom_theme_options() {
       )
     ),
     'settings'        => array(
+    /*
       array(
         'id'          => 'footer_item_1',
         'label'       => 'Footer Item 1',
@@ -78,6 +79,19 @@ function custom_theme_options() {
         'rows'        => 3,
         'section'     => 'general',
         'class'       => '',
+      ),
+      */
+      
+       array(
+        'id'          => 'featured_portfolio_items ',
+        'label'       => 'Featured Portfolio Items',
+        'desc'        => '',
+        'std'         => '',
+        'type'        => 'custom_post_type_checkbox',
+        'rows'        => 3,
+        'section'     => 'general',
+        'class'       => '',
+        'post_type'   => 'portfolio'
       ),
       
       
