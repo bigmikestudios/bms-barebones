@@ -13,6 +13,9 @@
 // for bootstrap type nav...
 require 'inc/wp_bootstrap_navwalker.php';
 
+// for homw page slider and any other acf fields...
+require 'inc/acf-fields.php';
+
 // This old thing...
 add_theme_support( 'menus');
 
