@@ -77,7 +77,7 @@ if ( is_admin() or (in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-re
   Less_Cache::$cache_dir = get_template_directory().'/css-cache';
   
   $files = array();
-  $files[get_template_directory().'/less/style.less'] = '/less/style-less.css';
+  $files[get_template_directory().'/less/style.less'] = '../style-less.css';
   
   $css_file_name = Less_Cache::Get( $files );
   
