@@ -13,51 +13,18 @@
 // for bootstrap type nav...
 require 'inc/wp_bootstrap_navwalker.php';
 
-// for homw page slider and any other acf fields...
-require 'inc/acf-fields.php';
+// for home page slider and any other acf fields...
+require 'inc/acf_fields.inc.php';
+
+// for option tree fields
+require 'inc/option_tree_fields.inc.php';
 
 // This old thing...
 add_theme_support( 'menus');
+add_theme_support( 'post-thumbnails' ); 
 
 
-// =============================================================================
 
-//////////////////////////
-//
-// OPTION TREE
-//
-//////////////////////////
-
-// =============================================================================
-
-/**
- * Optional: set 'ot_show_pages' filter to false.
- * This will hide the settings & documentation pages.
- */
-add_filter( 'ot_show_pages', '__return_false' );
-
-/**
- * Optional: set 'ot_show_new_layout' filter to false.
- * This will hide the "New Layout" section on the Theme Options page.
- */
-add_filter( 'ot_show_new_layout', '__return_false' );
-
-/**
- * Required: set 'ot_theme_mode' filter to true.
- */
-add_filter( 'ot_theme_mode', '__return_true' );
-
-/**
- * Required: include OptionTree.
- */
-load_template( trailingslashit( get_template_directory() ) . 'option-tree/ot-loader.php' );
-
-/**
- * Theme Options
- */
-load_template( trailingslashit( get_template_directory() ) . 'inc/theme-options.php' );
-
-// =============================================================================
 
 //////////////////////////
 //
