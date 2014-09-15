@@ -9,19 +9,26 @@
 
 // =============================================================================
 
-// INCLUDES
-// for bootstrap type nav...
-require 'inc/wp_bootstrap_navwalker.php';
+add_action( 'after_setup_theme', 'bms_custom_setup' );
 
-// for home page slider and any other acf fields...
-require 'inc/acf_fields.inc.php';
-
-// for option tree fields
-require 'inc/option_tree_fields.inc.php';
-
-// This old thing...
-add_theme_support( 'menus');
-add_theme_support( 'post-thumbnails' ); 
+if ( ! function_exists( 'bms_custom_setup' ) ):
+  function bms_custom_setup() {
+    // INCLUDES
+    // for bootstrap type nav...
+    require 'inc/wp_bootstrap_navwalker.php';
+    
+    // for home page slider and any other acf fields...
+    require 'inc/acf_fields.inc.php';
+    
+    // for option tree fields
+    require 'inc/option_tree_fields.inc.php';
+    
+    // This old thing...
+    add_theme_support( 'menus');
+    add_theme_support( 'post-thumbnails' ); 
+  
+  }
+endif; // L3_custom_setup
 
 
 
@@ -98,6 +105,29 @@ function register_my_menus() {
 	);
 }
 
+// removing dashboard widgets
+function bms_custom_remove_dashboard_widgets() {
+	global $wp_meta_boxes;
+
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']);
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);
+	
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts']);
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
+
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
+
+	$wp_meta_boxes['dashboard']['normal']['core']['dashboard_welcome'] = Array('id' => 'dashboard_welcome','title' => 'Administration Interface', 'callback' => 'wp_dashboard_welcome', 'args' =>'');
+	$wp_meta_boxes['dashboard']['normal']['core']['dashboard_shortcodes'] = Array('id' => 'dashboard_shortcode','title' => 'Important Shortcodes', 'callback' => 'wp_dashboard_shortcode', 'args' =>'');
+	//$wp_meta_boxes['dashboard']['side']['core']['dashboard_support'] = Array('id' => 'dashboard_support','title' => 'Support', 'callback' => 'wp_dashboard_support', 'args' =>'');
+	$wp_meta_boxes['dashboard']['side']['core']['dashboard_links'] = Array('id' => 'dashboard_links','title' => 'Post Feature Images', 'callback' => 'wp_dashboard_links', 'args' =>'');
+
+} 
+add_action('wp_dashboard_setup', 'bms_custom_remove_dashboard_widgets' );
+
 // =============================================================================
 
 //////////////////////////
@@ -115,5 +145,3 @@ register_sidebar(array(
   'before_title' => '<h3>',
   'after_title' => '</h3>'
 ));
-
-?>
