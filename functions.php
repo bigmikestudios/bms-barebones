@@ -7,12 +7,6 @@
 //
 //////////////////////////
 
-// =============================================================================
-
-add_action( 'after_setup_theme', 'bms_custom_setup' );
-
-if ( ! function_exists( 'bms_custom_setup' ) ):
-  function bms_custom_setup() {
     // INCLUDES
     // for bootstrap type nav...
     require 'inc/wp_bootstrap_navwalker.php';
@@ -22,13 +16,19 @@ if ( ! function_exists( 'bms_custom_setup' ) ):
     
     // for option tree fields
     require 'inc/option_tree_fields.inc.php';
+// =============================================================================
+
+add_action( 'after_setup_theme', 'bms_custom_setup' );
+
+if ( ! function_exists( 'bms_custom_setup' ) ):
+  function bms_custom_setup() {
     
     // This old thing...
     add_theme_support( 'menus');
     add_theme_support( 'post-thumbnails' ); 
   
   }
-endif; // L3_custom_setup
+endif; // bms_custom_setup
 
 
 
@@ -145,3 +145,16 @@ register_sidebar(array(
   'before_title' => '<h3>',
   'after_title' => '</h3>'
 ));
+
+// =============================================================================
+
+//////////////////////////
+//
+// SHORTCODES
+//
+//////////////////////////
+
+// =============================================================================
+
+
+

@@ -5,6 +5,9 @@ Template Name: Home Page
 ?>
 <?php get_header(); ?>
 
+
+<?php echo do_shortcode("[home_slides]"); ?>
+
 <div class="strata strata-page">
   <div class="container">
     <div class="row">
@@ -23,7 +26,7 @@ Template Name: Home Page
           <div class="carousel-inner">
             <?php $active="active"; $i=0; foreach($slider as $slide): ?>
             <div class="item <?php echo $active; $active=""; ?>">
-              <div class="image" style="background: url(<?php echo $slide['image']['url']; ?>); "> <img alt="dimension" src="<?php echo get_stylesheet_directory_uri(); ?>/img/transparent_12x5.png" /> </div>
+              <div class="image" style="background: url(http://lorempixel.com/1200/500/abstract/); "> <img alt="dimension" src="<?php echo get_stylesheet_directory_uri(); ?>/img/transparent_12x5.png" /> </div>
               <div class="carousel-caption">
                 <?php if ($slide['headline']): ?>
                 <h2><?php echo $slide['headline']; ?></h2>

@@ -13,6 +13,35 @@ if(function_exists("register_field_group"))
 				'type' => 'repeater',
 				'required' => 1,
 				'sub_fields' => array (
+         array (
+						'key' => 'field_53e2780686430',
+						'label' => 'image',
+						'name' => 'image',
+						'type' => 'image',
+						'required' => 1,
+						'column_width' => '',
+						'save_format' => 'object',
+						'preview_size' => 'thumbnail',
+						'library' => 'all',
+					),
+          /*
+         array (
+          'key' => 'field_53f509c0b7517',
+          'label' => 'Shader',
+          'name' => 'shader',
+          'type' => 'radio',
+          'required' => 1,
+          'choices' => array (
+            'None' => 'None',
+            'Blue' => 'Blue',
+            'Black' => 'Black',
+          ),
+          'other_choice' => 0,
+          'save_other_choice' => 0,
+          'default_value' => 'None',
+          'layout' => 'horizontal',
+        ),
+        */
 					array (
 						'key' => 'field_53d18eea06740',
 						'label' => 'Headline',
