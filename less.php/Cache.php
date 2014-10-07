@@ -147,7 +147,12 @@ class Less_Cache{
 				continue;
 			}
 
-			$parser->ParseFile( $file_path, $uri_or_less );
+	        	try {
+		            $parser->ParseFile($file_path, $uri_or_less);
+		        }catch(Exception $e){
+		            $error_message = $e->getMessage();
+		            die("<span style='color: #990000; font-weight: bold'>LESS COMPILER ERROR:</span> <br><pre>$error_message</pre>");
+		        }
 		}
 
 		$compiled = $parser->getCss();
