@@ -16,6 +16,10 @@
     
     // for option tree fields
     require 'inc/option_tree_fields.inc.php';
+
+    // for recommended and required plugins...
+    require 'inc/required-recommended-plugins.inc.php';
+
 // =============================================================================
 
 add_action( 'after_setup_theme', 'bms_custom_setup' );
@@ -43,27 +47,29 @@ endif; // bms_custom_setup
 
 // compile less
 // only if we aren't in admin:
-if ( is_admin() or (in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php', 'xmlrpc.php' ) ) ) ) {
-	// silence is golden
+if (is_admin() or (in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php', 'xmlrpc.php')))) {
+    // silence is golden
 } else {
-  
-  require 'less.php/Cache.php';
-  Less_Cache::$cache_dir = get_template_directory().'/css-cache';
-  
-  $files = array();
-  $files[get_template_directory().'/less/style.less'] = '../style-less.css';
-  
-  $css_file_name = Less_Cache::Get( $files );
-  
-  global $css_file_uri;
-  $css_file_uri = get_stylesheet_directory_uri().'/css-cache/'.$css_file_name;
-  
-  function my_styles_method() {
+
+    require 'inc/less.php/Cache.php';
+    Less_Cache::$cache_dir = get_template_directory() . '/css-cache';
+
+    $files = array();
+    $files[get_template_directory() . '/less/style.less'] = '../style-less.css';
+
+    $css_file_name = Less_Cache::Get($files);
+
     global $css_file_uri;
-	  wp_enqueue_style('style-less', $css_file_uri);
-  }
-  add_action('wp_enqueue_scripts', 'my_styles_method');
- 
+    $css_file_uri = get_stylesheet_directory_uri() . '/css-cache/' . $css_file_name;
+
+    function my_styles_method()
+    {
+        global $css_file_uri;
+        wp_enqueue_style('style-less', $css_file_uri);
+    }
+
+    add_action('wp_enqueue_scripts', 'my_styles_method');
+
 }
 
 // =============================================================================
