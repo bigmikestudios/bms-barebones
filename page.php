@@ -4,15 +4,12 @@
     <div class="row">
       <div class="col-md-8 content">
         <?php while ( have_posts() ) : the_post(); ?>
+            <h3><?php the_title(); ?></h3>
         <?php the_content(); ?>
         <?php endwhile; ?>
       </div>
       <div class="col-md-4 sidebar">
-        <ul>
-          <?php
-      if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('right-sidebar') ) :
-      endif; ?>
-        </ul>
+        <?php get_template_part('sidebar', 'page'); ?>
       </div>
     </div>
   </div>

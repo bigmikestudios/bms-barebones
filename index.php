@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
 <div class="strata index-strata">
   <div class="container">
     <div class="row">
@@ -26,13 +25,9 @@
         <hr/>
         <?php endwhile; ?>
       </div>
-      <div class="col-md-4 sidebar">
-        <ul>
-          <?php
-      if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('right-sidebar') ) :
-      endif; ?>
-        </ul>
-      </div>
+        <div class="col-md-4 sidebar">
+            <?php get_template_part('sidebar', $post->post_type); ?>
+        </div>
     </div>
   </div>
 </div>

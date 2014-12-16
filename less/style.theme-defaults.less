@@ -1,0 +1,31 @@
+
+.current-menu-item > a {color: @gray}
+
+.mobile-navbar {
+  position: fixed;
+  background: @white;
+  width: 100%;
+  float: left;
+  z-index: 999;
+}
+.mobile-spacer {
+  height: @space;
+}
+
+
+@media(max-width: @screen-xs-max){}
+@media(min-width: @screen-tablet){}     /* or @screen-sm */
+@media(min-width: @screen-desktop){
+.strata-footer {
+  padding-top: @space;
+  .menu {
+    list-style: none;
+    padding: 0;
+    li {
+      display: inline;
+      margin-right: @halfspace;
+    }
+  }
+}
+}    /* or @screen-md */
+@media(min-width: @screen-lg-desktop){} /* or @screen-lg */

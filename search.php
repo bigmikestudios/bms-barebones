@@ -34,13 +34,9 @@
         <?php get_search_form(); ?>
         <?php endif; ?>
       </div>
-      <div class="col-md-4 sidebar">
-        <ul>
-          <?php
-      if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('right-sidebar') ) :
-      endif; ?>
-        </ul>
-      </div>
+        <div class="col-md-4 sidebar">
+            <?php get_template_part('sidebar', 'search'); ?>
+        </div>
     </div>
   </div>
 </div>

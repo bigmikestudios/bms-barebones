@@ -2,7 +2,22 @@
   <div class="container">
     <div class="row">
       <footer>
-        <div class="col-md-12">Footer </div>
+        <div class="col-md-12">
+
+            <?php
+            wp_nav_menu(array(
+                    'theme_location' => 'footer-menu',
+                    'depth' => 1,
+//                    'container' => 'div',
+//                    'container_class' => 'collapse navbar-collapse navbar-ex1-collapse',
+//                    'menu_class' => 'nav navbar-nav',
+//                    'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
+//                    'walker' => new wp_bootstrap_navwalker()
+            ));
+            ?>
+
+
+        </div>
       </footer>
     </div>
   </div>
@@ -20,6 +35,17 @@
     <div class="back-to-top-inner"> <a href="#top"><span class="glyphicon glyphicon-chevron-up"></span></a> </div>
   </div>
 </div>
+
+<!-- MMENU -->
+<nav id="mmenu">
+    <?php
+    wp_nav_menu( array(
+            'theme_location'    => 'mobile-menu',
+            'depth'             => 2,
+        )
+    );
+    ?>
+</nav>
 
 <?php wp_footer(); ?>
 
