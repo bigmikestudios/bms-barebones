@@ -11,7 +11,6 @@
 //
 //////////////////////////
 
-<<<<<<< HEAD
 // INCLUDES
 // for bootstrap type nav...
 require 'inc/wp_bootstrap_navwalker.php';
@@ -24,20 +23,6 @@ require 'inc/option_tree_fields.inc.php';
 
 // for recommended and required plugins...
 require 'inc/required-recommended-plugins.inc.php';
-=======
-    // INCLUDES
-    // for bootstrap type nav...
-    require 'inc/wp_bootstrap_navwalker.php';
-    
-    // for home page slider and any other acf fields...
-    require 'inc/acf_fields.inc.php';
-    
-    // for option tree fields
-    require 'inc/option_tree_fields.inc.php';
-
-    // for recommended and required plugins...
-    require 'inc/required-recommended-plugins.inc.php';
->>>>>>> FETCH_HEAD
 
 // =============================================================================
 
