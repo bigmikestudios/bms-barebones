@@ -18,11 +18,12 @@ require 'inc/wp_bootstrap_navwalker.php';
 // for home page slider and any other acf fields...
 require 'inc/acf_fields.inc.php';
 
-// for option tree fields
-require 'inc/option_tree_fields.inc.php';
-
 // for recommended and required plugins...
 require 'inc/required-recommended-plugins.inc.php';
+
+
+// for ACF Options page...
+require 'inc/acf_options.inc.php';
 
 // =============================================================================
 
@@ -85,6 +86,31 @@ if (is_admin() or (in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-regis
 //////////////////////////
 
 // ============================================================================= 
+
+// add options page (depends on ACF Pro)
+/*if( function_exists('acf_add_options_page') ) {
+
+    acf_add_options_page(array(
+        'page_title' 	=> 'Theme General Settings',
+        'menu_title'	=> 'Theme Settings',
+        'menu_slug' 	=> 'theme-general-settings',
+        'capability'	=> 'edit_posts',
+        'redirect'		=> false
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title' 	=> 'Theme Header Settings',
+        'menu_title'	=> 'Header',
+        'parent_slug'	=> 'theme-general-settings',
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title' 	=> 'Theme Footer Settings',
+        'menu_title'	=> 'Footer',
+        'parent_slug'	=> 'theme-general-settings',
+    ));
+
+}*/
 
 // add scripts
 function my_scripts_method() {
