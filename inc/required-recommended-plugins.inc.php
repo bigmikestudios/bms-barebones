@@ -20,8 +20,8 @@ add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
  * TGM_Plugin_Activation class constructor.
  */
 function my_theme_register_required_plugins() {
-    $premium_wp_plugins_dir = "http://localhost/premium-wp-plugins/";
-    $premium_wp_plugins_path = "/Users/mikelathrop/Dropbox/1work/wwwroot/premium-wp-plugins/";
+    $premium_wp_plugins_dir = "file://Users/mikelathrop/Dropbox/1work/Install\ Media/WP\ Addons";
+    $premium_wp_plugins_path = "/Users/mikelathrop/Dropbox/1work/Install\ Media/WP\ Addons";
     /**
      * Array of plugin arrays. Required keys are name and slug.
      * If the source is NOT from the .org repo, then source is also required.
@@ -51,15 +51,10 @@ function my_theme_register_required_plugins() {
 */
         // REQUIRED
         array(
-            'name'      => 'Advanced Custom Fields',
-            'slug'      => 'advanced-custom-fields',
-            'required'  => true,
-        ),
-        array(
-            'name'      => 'Advanced Custom Fields: Repeater Field',
-            'slug'      => 'acf-repeater',
-            'source'             =>$premium_wp_plugins_path . 'acf-repeater.zip',
-            'external_url'    => $premium_wp_plugins_dir . 'acf-repeater.zip',
+            'name'      => 'Advanced Custom Fields Pro',
+            'slug'      => 'advanced-custom-fields-pro',
+            'source'             =>"/".$premium_wp_plugins_path . '/advanced-custom-fields-pro.zip',
+            'external_url'    => $premium_wp_plugins_dir . '/advanced-custom-fields-pro',
             'required'  => true,
         ),
 

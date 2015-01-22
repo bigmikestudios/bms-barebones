@@ -25,6 +25,10 @@ require 'inc/required-recommended-plugins.inc.php';
 // for ACF Options page...
 require 'inc/acf_options.inc.php';
 
+
+// for ACF Flexible Content Blocks site...
+require 'inc/flexible.acf.content.blocks.php';
+
 // =============================================================================
 
 add_action( 'after_setup_theme', 'bms_custom_setup' );
@@ -39,7 +43,64 @@ if ( ! function_exists( 'bms_custom_setup' ) ):
     }
 endif; // bms_custom_setup
 
+//////////////////////////
+//
+// HELPER
+//
+//////////////////////////
 
+function trace($arg) {
+    $ts = "";
+    $type = gettype($arg);
+    switch ($type) {
+        case ("boolean") :
+            $ts = ($arg) ? "true" : "false";
+            break;
+        case ("integer") :
+        case ("double") :
+        case ("float") :
+        case ("string") :
+            $ts = $arg;
+            break;
+        case ("array") :
+        case ("object") :
+            $ts = print_r($arg, true);
+            break;
+        default :
+            $ts = "type: $type";
+            break;
+    }
+    error_log($ts);
+    print "<pre>";
+    print $ts;
+    print "</pre>";
+
+
+    global $wpdb;
+    $table_name = $wpdb->prefix."bms_trace";
+
+
+    if( $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) != $table_name ) {
+        if ( ! empty( $wpdb->charset ) )
+            $charset_collate = "DEFAULT CHARACTER SET $wpdb->charset";
+        if ( ! empty( $wpdb->collate ) )
+            $charset_collate .= " COLLATE $wpdb->collate";
+
+        $sql = "CREATE TABLE " . $table_name . " (
+			`id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+			`date_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+			`description` longtext NOT NULL,
+			PRIMARY KEY (`id`)
+		) $charset_collate;";
+        $wpdb->query($sql);
+    }
+
+
+    $wpdb->insert( $table_name, array('description'=>$ts) );
+
+
+
+}
 
 
 //////////////////////////
@@ -111,6 +172,7 @@ if (is_admin() or (in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-regis
     ));
 
 }*/
+
 
 // add scripts
 function my_scripts_method() {
