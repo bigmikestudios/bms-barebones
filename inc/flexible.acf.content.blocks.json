@@ -286,6 +286,38 @@
                         ],
                         "min": "",
                         "max": ""
+                    },
+                    {
+                        "key": "54c1de8fa1eb2",
+                        "name": "divider",
+                        "label": "Divider",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_54c1e0d888bb1",
+                                "label": "Name",
+                                "name": "name",
+                                "prefix": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": "",
+                                "readonly": 0,
+                                "disabled": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
                     }
                 ]
             }
@@ -355,7 +387,8 @@
                         "choices": {
                             "clients-block": "clients-block",
                             "contact-block": "contact-block",
-                            "newsletter-block": "newsletter-block"
+                            "newsletter-block": "newsletter-block",
+                            "divider": "divider"
                         },
                         "default_value": {
                             "": ""
