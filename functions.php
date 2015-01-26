@@ -25,9 +25,8 @@ require 'inc/required-recommended-plugins.inc.php';
 // for ACF Options page...
 require 'inc/acf_options.inc.php';
 
-
 // for ACF Flexible Content Blocks site...
-require 'inc/flexible.acf.content.blocks.php';
+require 'inc/blocks.inc.php';
 
 // =============================================================================
 
