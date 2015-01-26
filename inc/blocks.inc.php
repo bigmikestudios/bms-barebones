@@ -13,8 +13,10 @@ function global_block_choices( $field ) {
     //trace($global_blocks);
     $choices = array();
 
-    foreach($global_blocks as $block) {
-        if ($block['name']) $choices[] = $block['name'];
+    if ($global_blocks) {
+        foreach($global_blocks as $block) {
+            if ($block['name']) $choices[] = $block['name'];
+        }
     }
 
     // remove any unwanted white space

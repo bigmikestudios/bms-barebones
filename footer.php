@@ -1,3 +1,18 @@
+<?php $blocks = get_field('footer_blocks', 'options'); ?>
+<?php if ($blocks): ?>
+    <?php foreach ($blocks as $block): ?>
+        <?php the_block($block); ?>
+    <?php endforeach ?>
+<?php endif; ?>
+<?php $global_blocks = get_field('global_blocks'); ?>
+<?php if ($global_blocks): ?>
+
+    <?php foreach ($global_blocks as $item): ?>
+        <?php the_global_block($item['global_block']); ?>
+    <?php endforeach ?>
+<?php endif; ?>
+
+
 <div class="strata strata-footer">
   <div class="container">
     <div class="row">
@@ -15,7 +30,6 @@
 //                    'walker' => new wp_bootstrap_navwalker()
             ));
             ?>
-
 
         </div>
       </footer>

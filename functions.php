@@ -74,10 +74,8 @@ function trace($arg) {
     print $ts;
     print "</pre>";
 
-
     global $wpdb;
     $table_name = $wpdb->prefix."bms_trace";
-
 
     if( $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) != $table_name ) {
         if ( ! empty( $wpdb->charset ) )
@@ -94,11 +92,32 @@ function trace($arg) {
         $wpdb->query($sql);
     }
 
-
     $wpdb->insert( $table_name, array('description'=>$ts) );
+}
 
+// =============================================================================
 
+// return the url of a featured image, given the post's id and desired size
 
+function get_post_thumbnail_url ($post_id, $size="full") {
+    $thumb_id =  get_post_thumbnail_id( $post_id );
+    $thumb = wp_get_attachment_image_src( $thumb_id, $size );
+    return ($thumb['0']);
+}
+
+// =============================================================================
+
+// return HTML markup for a responsive image based on the custom CSS defined in this theme
+
+function image_div( $image_url, $frame_size = "square", $image_size = "full") {
+    ob_start();
+    ?>
+    <div class="image" style="background-image: url(<?php echo $image_url; ?>)">
+        <img src="<?php echo get_stylesheet_directory_uri()."/img/transparent_$frame_size.png"; ?>" />
+    </div>
+    <?php
+    $return = ob_get_clean();
+    return $return;
 }
 
 
@@ -146,32 +165,6 @@ if (is_admin() or (in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-regis
 //////////////////////////
 
 // ============================================================================= 
-
-// add options page (depends on ACF Pro)
-/*if( function_exists('acf_add_options_page') ) {
-
-    acf_add_options_page(array(
-        'page_title' 	=> 'Theme General Settings',
-        'menu_title'	=> 'Theme Settings',
-        'menu_slug' 	=> 'theme-general-settings',
-        'capability'	=> 'edit_posts',
-        'redirect'		=> false
-    ));
-
-    acf_add_options_sub_page(array(
-        'page_title' 	=> 'Theme Header Settings',
-        'menu_title'	=> 'Header',
-        'parent_slug'	=> 'theme-general-settings',
-    ));
-
-    acf_add_options_sub_page(array(
-        'page_title' 	=> 'Theme Footer Settings',
-        'menu_title'	=> 'Footer',
-        'parent_slug'	=> 'theme-general-settings',
-    ));
-
-}*/
-
 
 // add scripts
 function my_scripts_method() {
