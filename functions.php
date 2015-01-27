@@ -27,6 +27,12 @@ require 'inc/acf_options.inc.php';
 // for ACF Flexible Content Blocks site...
 require 'inc/blocks.inc.php';
 
+// define custom post types...
+require 'inc/custom.post.types.inc.php';
+
+// for Sliders
+add_image_size ('1280x534px',1280, 534, true );
+
 // =============================================================================
 
 add_action( 'after_setup_theme', 'bms_custom_setup' );
@@ -78,10 +84,8 @@ function trace($arg) {
     print $ts;
     print "</pre>";
 
-
     global $wpdb;
     $table_name = $wpdb->prefix."bms_trace";
-
 
     if( $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) != $table_name ) {
         if ( ! empty( $wpdb->charset ) )
@@ -99,16 +103,16 @@ function trace($arg) {
     }
 
     $wpdb->insert( $table_name, array('description'=>$ts) );
-
 }
 
 // =============================================================================
 
 // return the url of a featured image, given the post's id and desired size
 
-function get_post_thumbnail_url ($post_id, $size="full") {
-    $thumb_id =  get_post_thumbnail_id( $post_id );
-    $thumb = wp_get_attachment_image_src( $thumb_id, $size );
+function get_post_thumbnail_url ($post_id, $size="full")
+{
+    $thumb_id = get_post_thumbnail_id($post_id);
+    $thumb = wp_get_attachment_image_src($thumb_id, $size);
     return ($thumb['0']);
 }
 
@@ -172,7 +176,6 @@ if (is_admin() or (in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-regis
 
 // =============================================================================
 
-
 // add scripts
 function my_scripts_method() {
     $stylesheet_dir = get_bloginfo('stylesheet_directory');
@@ -226,10 +229,10 @@ function bms_custom_remove_dashboard_widgets() {
 
     unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
 
-    $wp_meta_boxes['dashboard']['normal']['core']['dashboard_welcome'] = Array('id' => 'dashboard_welcome','title' => 'Administration Interface', 'callback' => 'wp_dashboard_welcome', 'args' =>'');
-    $wp_meta_boxes['dashboard']['normal']['core']['dashboard_shortcodes'] = Array('id' => 'dashboard_shortcode','title' => 'Important Shortcodes', 'callback' => 'wp_dashboard_shortcode', 'args' =>'');
+    //$wp_meta_boxes['dashboard']['normal']['core']['dashboard_welcome'] = Array('id' => 'dashboard_welcome','title' => 'Administration Interface', 'callback' => 'wp_dashboard_welcome', 'args' =>'');
+    //$wp_meta_boxes['dashboard']['normal']['core']['dashboard_shortcodes'] = Array('id' => 'dashboard_shortcode','title' => 'Important Shortcodes', 'callback' => 'wp_dashboard_shortcode', 'args' =>'');
     //$wp_meta_boxes['dashboard']['side']['core']['dashboard_support'] = Array('id' => 'dashboard_support','title' => 'Support', 'callback' => 'wp_dashboard_support', 'args' =>'');
-    $wp_meta_boxes['dashboard']['side']['core']['dashboard_links'] = Array('id' => 'dashboard_links','title' => 'Post Feature Images', 'callback' => 'wp_dashboard_links', 'args' =>'');
+    //$wp_meta_boxes['dashboard']['side']['core']['dashboard_links'] = Array('id' => 'dashboard_links','title' => 'Post Feature Images', 'callback' => 'wp_dashboard_links', 'args' =>'');
 
 }
 add_action('wp_dashboard_setup', 'bms_custom_remove_dashboard_widgets' );
@@ -278,55 +281,4 @@ function button($atts )
 add_shortcode( 'button', 'button' );
 
 // =============================================================================
-
-//////////////////////////
-//
-// CUSTOM POST TYPES
-//
-//////////////////////////
-
-// =============================================================================
-
-add_action( 'init', 'register_cpt_case_study' );
-
-function register_cpt_case_study() {
-
-    $labels = array(
-        'name' => _x( 'Case Studies', 'case_study' ),
-        'singular_name' => _x( 'Case Study', 'case_study' ),
-        'add_new' => _x( 'Add New', 'case_study' ),
-        'add_new_item' => _x( 'Add New Case Study', 'case_study' ),
-        'edit_item' => _x( 'Edit Case Study', 'case_study' ),
-        'new_item' => _x( 'New Case Study', 'case_study' ),
-        'view_item' => _x( 'View Case Study', 'case_study' ),
-        'search_items' => _x( 'Search Case Studies', 'case_study' ),
-        'not_found' => _x( 'No case studies found', 'case_study' ),
-        'not_found_in_trash' => _x( 'No case studies found in Trash', 'case_study' ),
-        'parent_item_colon' => _x( 'Parent Case Study:', 'case_study' ),
-        'menu_name' => _x( 'Case Studies', 'case_study' ),
-    );
-
-    $args = array(
-        'labels' => $labels,
-        'hierarchical' => false,
-
-        'supports' => array( 'title', 'editor', 'thumbnail' ),
-
-        'public' => true,
-        'show_ui' => true,
-        'show_in_menu' => true,
-
-
-        'show_in_nav_menus' => true,
-        'publicly_queryable' => true,
-        'exclude_from_search' => false,
-        'has_archive' => true,
-        'query_var' => true,
-        'can_export' => true,
-        'rewrite' => true,
-        'capability_type' => 'post'
-    );
-
-    register_post_type( 'case_study', $args );
-}
 
