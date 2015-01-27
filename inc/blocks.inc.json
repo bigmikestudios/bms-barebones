@@ -94,6 +94,196 @@
                         "max": ""
                     },
                     {
+                        "key": "54c47300977cb",
+                        "name": "custom_columns",
+                        "label": "Custom Columns",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_54c47315977cc",
+                                "label": "Name",
+                                "name": "name",
+                                "prefix": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": "",
+                                "readonly": 0,
+                                "disabled": 0
+                            },
+                            {
+                                "key": "field_54c47321977cd",
+                                "label": "Columns",
+                                "name": "columns",
+                                "prefix": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "min": "",
+                                "max": "",
+                                "layout": "block",
+                                "button_label": "Add Column",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_54c47a75d3283",
+                                        "label": "Wrapper Class",
+                                        "name": "wrapper_class",
+                                        "prefix": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": "",
+                                        "readonly": 0,
+                                        "disabled": 0
+                                    },
+                                    {
+                                        "key": "field_54c4733c977ce",
+                                        "label": "Width",
+                                        "name": "width",
+                                        "prefix": "",
+                                        "type": "number",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": 3,
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "min": 1,
+                                        "max": 12,
+                                        "step": "",
+                                        "readonly": 0,
+                                        "disabled": 0
+                                    },
+                                    {
+                                        "key": "field_54c47366977cf",
+                                        "label": "Offset",
+                                        "name": "offset",
+                                        "prefix": "",
+                                        "type": "number",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": 0,
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "min": 0,
+                                        "max": 12,
+                                        "step": "",
+                                        "readonly": 0,
+                                        "disabled": 0
+                                    },
+                                    {
+                                        "key": "field_54c4738a977d0",
+                                        "label": "Push",
+                                        "name": "push",
+                                        "prefix": "",
+                                        "type": "number",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": 0,
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "min": 0,
+                                        "max": 12,
+                                        "step": "",
+                                        "readonly": 0,
+                                        "disabled": 0
+                                    },
+                                    {
+                                        "key": "field_54c473c0977d1",
+                                        "label": "Pull",
+                                        "name": "pull",
+                                        "prefix": "",
+                                        "type": "number",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": 0,
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "min": 0,
+                                        "max": 12,
+                                        "step": "",
+                                        "readonly": 0,
+                                        "disabled": 0
+                                    },
+                                    {
+                                        "key": "field_54c47404977d2",
+                                        "label": "Content",
+                                        "name": "content",
+                                        "prefix": "",
+                                        "type": "wysiwyg",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "tabs": "all",
+                                        "toolbar": "full",
+                                        "media_upload": 1
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
                         "key": "54c08ce63efe4",
                         "name": "4_images_under_a_description",
                         "label": "4 Images under a description",
