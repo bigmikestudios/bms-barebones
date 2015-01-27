@@ -21,7 +21,6 @@ require 'inc/acf_fields.inc.php';
 // for recommended and required plugins...
 require 'inc/required-recommended-plugins.inc.php';
 
-
 // for ACF Options page...
 require 'inc/acf_options.inc.php';
 
@@ -42,12 +41,17 @@ if ( ! function_exists( 'bms_custom_setup' ) ):
     }
 endif; // bms_custom_setup
 
+// =============================================================================
+
 //////////////////////////
 //
 // HELPER
 //
 //////////////////////////
 
+// =============================================================================
+
+// trace, for the troubleshootin'
 function trace($arg) {
     $ts = "";
     $type = gettype($arg);
@@ -94,13 +98,34 @@ function trace($arg) {
         $wpdb->query($sql);
     }
 
-
     $wpdb->insert( $table_name, array('description'=>$ts) );
-
-
 
 }
 
+// =============================================================================
+
+// return the url of a featured image, given the post's id and desired size
+
+function get_post_thumbnail_url ($post_id, $size="full") {
+    $thumb_id =  get_post_thumbnail_id( $post_id );
+    $thumb = wp_get_attachment_image_src( $thumb_id, $size );
+    return ($thumb['0']);
+}
+
+// =============================================================================
+
+// return HTML markup for a responsive image based on the custom CSS defined in this theme
+
+function image_div( $image_url, $frame_size = "square", $image_size = "full") {
+    ob_start();
+    ?>
+    <div class="image" style="background-image: url(<?php echo $image_url; ?>)">
+        <img src="<?php echo get_stylesheet_directory_uri()."/img/transparent_$frame_size.png"; ?>" />
+    </div>
+    <?php
+    $return = ob_get_clean();
+    return $return;
+}
 
 //////////////////////////
 //
@@ -145,32 +170,7 @@ if (is_admin() or (in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-regis
 //
 //////////////////////////
 
-// ============================================================================= 
-
-// add options page (depends on ACF Pro)
-/*if( function_exists('acf_add_options_page') ) {
-
-    acf_add_options_page(array(
-        'page_title' 	=> 'Theme General Settings',
-        'menu_title'	=> 'Theme Settings',
-        'menu_slug' 	=> 'theme-general-settings',
-        'capability'	=> 'edit_posts',
-        'redirect'		=> false
-    ));
-
-    acf_add_options_sub_page(array(
-        'page_title' 	=> 'Theme Header Settings',
-        'menu_title'	=> 'Header',
-        'parent_slug'	=> 'theme-general-settings',
-    ));
-
-    acf_add_options_sub_page(array(
-        'page_title' 	=> 'Theme Footer Settings',
-        'menu_title'	=> 'Footer',
-        'parent_slug'	=> 'theme-general-settings',
-    ));
-
-}*/
+// =============================================================================
 
 
 // add scripts
@@ -262,5 +262,71 @@ register_sidebar(array(
 
 // =============================================================================
 
+function button($atts )
+{
+    $atts = shortcode_atts(array(
+        'url' => site_url(),
+        'label' => "click here!",
+        'new' => false,
+    ), $atts, 'button');
 
+    $return = "<a class='btn btn-default' href='".$atts['url']."'";
+    if ($atts['new']) $return .= " target='_blank'";
+    $return .= ">".$atts['label']."</a>";
+    return $return;
+}
+add_shortcode( 'button', 'button' );
+
+// =============================================================================
+
+//////////////////////////
+//
+// CUSTOM POST TYPES
+//
+//////////////////////////
+
+// =============================================================================
+
+add_action( 'init', 'register_cpt_case_study' );
+
+function register_cpt_case_study() {
+
+    $labels = array(
+        'name' => _x( 'Case Studies', 'case_study' ),
+        'singular_name' => _x( 'Case Study', 'case_study' ),
+        'add_new' => _x( 'Add New', 'case_study' ),
+        'add_new_item' => _x( 'Add New Case Study', 'case_study' ),
+        'edit_item' => _x( 'Edit Case Study', 'case_study' ),
+        'new_item' => _x( 'New Case Study', 'case_study' ),
+        'view_item' => _x( 'View Case Study', 'case_study' ),
+        'search_items' => _x( 'Search Case Studies', 'case_study' ),
+        'not_found' => _x( 'No case studies found', 'case_study' ),
+        'not_found_in_trash' => _x( 'No case studies found in Trash', 'case_study' ),
+        'parent_item_colon' => _x( 'Parent Case Study:', 'case_study' ),
+        'menu_name' => _x( 'Case Studies', 'case_study' ),
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'hierarchical' => false,
+
+        'supports' => array( 'title', 'editor', 'thumbnail' ),
+
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+
+
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => true,
+        'capability_type' => 'post'
+    );
+
+    register_post_type( 'case_study', $args );
+}
 

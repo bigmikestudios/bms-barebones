@@ -2,7 +2,7 @@
 <div class="strata index-strata">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 content">
+      <div class="col-md-12 content">
         <?php
 			// Pagination:
 			global $wp_query;
@@ -18,16 +18,11 @@
         <h3><a href="<?php the_permalink(); ?>">
           <?php the_title(); ?>
           </a></h3>
-        <p><small>
-          <?php the_date(); ?>
-          </small></p>
         <?php the_content(); ?>
         <hr/>
         <?php endwhile; ?>
       </div>
-        <div class="col-md-4 sidebar">
-            <?php get_template_part('sidebar', $post->post_type); ?>
-        </div>
+
     </div>
   </div>
 </div>
