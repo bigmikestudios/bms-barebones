@@ -30,6 +30,9 @@ require 'inc/blocks.inc.php';
 // define custom post types...
 require 'inc/custom.post.types.inc.php';
 
+// define custom post types...
+require 'inc/move-admin-bar-to-bottom.inc.php';
+
 // for Sliders
 add_image_size ('1280x534px',1280, 534, true );
 
