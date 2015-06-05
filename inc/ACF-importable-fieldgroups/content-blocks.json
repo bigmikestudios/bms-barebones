@@ -7,7 +7,6 @@
                 "key": "field_54c08c3a3efe2",
                 "label": "Blocks",
                 "name": "blocks",
-                "prefix": "",
                 "type": "flexible_content",
                 "instructions": "",
                 "required": 0,
@@ -31,7 +30,6 @@
                                 "key": "field_54c14b72b768a",
                                 "label": "Name",
                                 "name": "name",
-                                "prefix": "",
                                 "type": "text",
                                 "instructions": "",
                                 "required": 0,
@@ -53,7 +51,6 @@
                                 "key": "field_54c14b72b768b",
                                 "label": "Columns",
                                 "name": "columns",
-                                "prefix": "",
                                 "type": "repeater",
                                 "instructions": "",
                                 "required": 0,
@@ -72,7 +69,6 @@
                                         "key": "field_54c14c284db86",
                                         "label": "Content",
                                         "name": "content",
-                                        "prefix": "",
                                         "type": "wysiwyg",
                                         "instructions": "",
                                         "required": 0,
@@ -103,7 +99,6 @@
                                 "key": "field_54c47315977cc",
                                 "label": "Name",
                                 "name": "name",
-                                "prefix": "",
                                 "type": "text",
                                 "instructions": "",
                                 "required": 0,
@@ -125,7 +120,6 @@
                                 "key": "field_54c47321977cd",
                                 "label": "Columns",
                                 "name": "columns",
-                                "prefix": "",
                                 "type": "repeater",
                                 "instructions": "",
                                 "required": 0,
@@ -144,7 +138,6 @@
                                         "key": "field_54c47a75d3283",
                                         "label": "Wrapper Class",
                                         "name": "wrapper_class",
-                                        "prefix": "",
                                         "type": "text",
                                         "instructions": "",
                                         "required": 0,
@@ -166,7 +159,6 @@
                                         "key": "field_54c4733c977ce",
                                         "label": "Width",
                                         "name": "width",
-                                        "prefix": "",
                                         "type": "number",
                                         "instructions": "",
                                         "required": 0,
@@ -190,7 +182,6 @@
                                         "key": "field_54c47366977cf",
                                         "label": "Offset",
                                         "name": "offset",
-                                        "prefix": "",
                                         "type": "number",
                                         "instructions": "",
                                         "required": 0,
@@ -214,7 +205,6 @@
                                         "key": "field_54c4738a977d0",
                                         "label": "Push",
                                         "name": "push",
-                                        "prefix": "",
                                         "type": "number",
                                         "instructions": "",
                                         "required": 0,
@@ -238,7 +228,6 @@
                                         "key": "field_54c473c0977d1",
                                         "label": "Pull",
                                         "name": "pull",
-                                        "prefix": "",
                                         "type": "number",
                                         "instructions": "",
                                         "required": 0,
@@ -262,7 +251,6 @@
                                         "key": "field_54c47404977d2",
                                         "label": "Content",
                                         "name": "content",
-                                        "prefix": "",
                                         "type": "wysiwyg",
                                         "instructions": "",
                                         "required": 0,
@@ -293,7 +281,6 @@
                                 "key": "field_54c08ec11d318",
                                 "label": "Name",
                                 "name": "name",
-                                "prefix": "",
                                 "type": "text",
                                 "instructions": "",
                                 "required": 0,
@@ -315,7 +302,6 @@
                                 "key": "field_54c08d693efe6",
                                 "label": "Description",
                                 "name": "description",
-                                "prefix": "",
                                 "type": "wysiwyg",
                                 "instructions": "",
                                 "required": 0,
@@ -334,7 +320,6 @@
                                 "key": "field_54c08d803efe7",
                                 "label": "Images",
                                 "name": "images",
-                                "prefix": "",
                                 "type": "repeater",
                                 "instructions": "",
                                 "required": 0,
@@ -353,7 +338,6 @@
                                         "key": "field_54c08da13efe8",
                                         "label": "image",
                                         "name": "image",
-                                        "prefix": "",
                                         "type": "image",
                                         "instructions": "",
                                         "required": 0,
@@ -365,13 +349,19 @@
                                         },
                                         "return_format": "array",
                                         "preview_size": "thumbnail",
-                                        "library": "all"
+                                        "library": "all",
+                                        "min_width": 0,
+                                        "min_height": 0,
+                                        "min_size": 0,
+                                        "max_width": 0,
+                                        "max_height": 0,
+                                        "max_size": 0,
+                                        "mime_types": ""
                                     },
                                     {
                                         "key": "field_54c08db93efe9",
                                         "label": "url",
                                         "name": "url",
-                                        "prefix": "",
                                         "type": "url",
                                         "instructions": "",
                                         "required": 0,
@@ -388,7 +378,6 @@
                                         "key": "field_54c08dce3efea",
                                         "label": "open in a new tab?",
                                         "name": "open_in_a_new_tab",
-                                        "prefix": "",
                                         "type": "true_false",
                                         "instructions": "",
                                         "required": 0,
@@ -417,7 +406,6 @@
                                 "key": "field_54c08ec61d319",
                                 "label": "Name",
                                 "name": "name",
-                                "prefix": "",
                                 "type": "text",
                                 "instructions": "",
                                 "required": 0,
@@ -439,7 +427,6 @@
                                 "key": "field_54c08e6136002",
                                 "label": "Big Column",
                                 "name": "big_column",
-                                "prefix": "",
                                 "type": "wysiwyg",
                                 "instructions": "",
                                 "required": 0,
@@ -458,7 +445,6 @@
                                 "key": "field_54c08e7436003",
                                 "label": "Little Column",
                                 "name": "little_column",
-                                "prefix": "",
                                 "type": "wysiwyg",
                                 "instructions": "",
                                 "required": 0,
@@ -487,7 +473,6 @@
                                 "key": "field_54c1e0d888bb1",
                                 "label": "Name",
                                 "name": "name",
-                                "prefix": "",
                                 "type": "text",
                                 "instructions": "",
                                 "required": 0,
@@ -519,7 +504,6 @@
                                 "key": "field_54c6b417544ed",
                                 "label": "Name",
                                 "name": "name",
-                                "prefix": "",
                                 "type": "text",
                                 "instructions": "",
                                 "required": 0,
@@ -541,7 +525,6 @@
                                 "key": "field_54c6b38c544e7",
                                 "label": "Slides",
                                 "name": "slides",
-                                "prefix": "",
                                 "type": "repeater",
                                 "instructions": "",
                                 "required": 0,
@@ -560,7 +543,6 @@
                                         "key": "field_54c6b43b5552f",
                                         "label": "Image",
                                         "name": "image",
-                                        "prefix": "",
                                         "type": "image",
                                         "instructions": "",
                                         "required": 0,
@@ -572,13 +554,19 @@
                                         },
                                         "return_format": "array",
                                         "preview_size": "1280x534px",
-                                        "library": "all"
+                                        "library": "all",
+                                        "min_width": 0,
+                                        "min_height": 0,
+                                        "min_size": 0,
+                                        "max_width": 0,
+                                        "max_height": 0,
+                                        "max_size": 0,
+                                        "mime_types": ""
                                     },
                                     {
                                         "key": "field_54c6b3aa544e8",
                                         "label": "Title",
                                         "name": "title",
-                                        "prefix": "",
                                         "type": "text",
                                         "instructions": "",
                                         "required": 0,
@@ -600,7 +588,6 @@
                                         "key": "field_54c6b3b6544e9",
                                         "label": "Content",
                                         "name": "content",
-                                        "prefix": "",
                                         "type": "wysiwyg",
                                         "instructions": "",
                                         "required": 0,
@@ -619,7 +606,6 @@
                                         "key": "field_54c6b3c9544ea",
                                         "label": "Button Label",
                                         "name": "button_label",
-                                        "prefix": "",
                                         "type": "text",
                                         "instructions": "",
                                         "required": 0,
@@ -641,7 +627,6 @@
                                         "key": "field_54c6b3d4544eb",
                                         "label": "Button URL",
                                         "name": "button_url",
-                                        "prefix": "",
                                         "type": "url",
                                         "instructions": "",
                                         "required": 0,
@@ -658,7 +643,6 @@
                                         "key": "field_54c6b3dd544ec",
                                         "label": "Open in a new tab?",
                                         "name": "open_in_a_new_tab",
-                                        "prefix": "",
                                         "type": "true_false",
                                         "instructions": "",
                                         "required": 0,
@@ -704,134 +688,5 @@
         "hide_on_screen": [
             "the_content"
         ]
-    },
-    {
-        "key": "group_54c5e09095eee",
-        "title": "Footer Option Fields",
-        "fields": [
-            {
-                "key": "field_54c6c4a18da97",
-                "label": "Footer Columns",
-                "name": "footer_columns",
-                "prefix": "",
-                "type": "repeater",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "min": "",
-                "max": 4,
-                "layout": "table",
-                "button_label": "Add Column",
-                "sub_fields": [
-                    {
-                        "key": "field_54c6c4b18da98",
-                        "label": "Content",
-                        "name": "content",
-                        "prefix": "",
-                        "type": "wysiwyg",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "tabs": "all",
-                        "toolbar": "full",
-                        "media_upload": 1
-                    }
-                ]
-            }
-        ],
-        "location": [
-            [
-                {
-                    "param": "options_page",
-                    "operator": "==",
-                    "value": "acf-options-footer"
-                }
-            ]
-        ],
-        "menu_order": 0,
-        "position": "normal",
-        "style": "default",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "hide_on_screen": ""
-    },
-    {
-        "key": "group_54c14e5d0544e",
-        "title": "Add Global Blocks",
-        "fields": [
-            {
-                "key": "field_54c14e743803f",
-                "label": "Global Blocks",
-                "name": "global_blocks",
-                "prefix": "",
-                "type": "repeater",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "min": "",
-                "max": "",
-                "layout": "table",
-                "button_label": "Add Row",
-                "sub_fields": [
-                    {
-                        "key": "field_54c14e8e38040",
-                        "label": "Global Block",
-                        "name": "global_block",
-                        "prefix": "",
-                        "type": "select",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "choices": [],
-                        "default_value": {
-                            "": ""
-                        },
-                        "allow_null": 0,
-                        "multiple": 0,
-                        "ui": 0,
-                        "ajax": 0,
-                        "placeholder": "",
-                        "disabled": 0,
-                        "readonly": 0
-                    }
-                ]
-            }
-        ],
-        "location": [
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "page"
-                }
-            ]
-        ],
-        "menu_order": 10,
-        "position": "normal",
-        "style": "default",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "hide_on_screen": ""
     }
 ]

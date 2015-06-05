@@ -15,10 +15,7 @@
 			) );
 	  ?>
         <?php while ( have_posts() ) : the_post(); ?>
-        <h3><a href="<?php the_permalink(); ?>">
-          <?php the_title(); ?>
-          </a></h3>
-        <?php the_content(); ?>
+        <?php get_template_part('content', $post->post_type); ?>
         <hr/>
         <?php endwhile; ?>
       </div>

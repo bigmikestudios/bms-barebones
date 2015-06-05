@@ -1,12 +1,4 @@
 
-<?php $global_blocks = get_field('global_blocks'); ?>
-<?php if ($global_blocks): ?>
-    <?php foreach ($global_blocks as $item): ?>
-        <?php the_global_block($item['global_block']); ?>
-    <?php endforeach ?>
-<?php endif; ?>
-
-
 <div class="strata strata-footer">
     <div class="container">
         <div class="row">
@@ -53,23 +45,20 @@
 <!--/#outer-wrap-->
 <!-- END OFF CANVAS MENU WRAPPERS -->
 
-<div class="back-to-top visible-sm visible-xs">
-    <div class="back-to-top-outer">
-        <div class="back-to-top-inner"> <a href="#top"><span class="glyphicon glyphicon-chevron-up"></span></a> </div>
-    </div>
-</div>
-
 <!-- MMENU -->
-<nav id="mmenu">
-    <?php
-    wp_nav_menu( array(
-            'theme_location'    => 'mobile-menu',
-            'depth'             => 2,
-        )
-    );
-    ?>
-</nav>
+<div class="hidden">
+    <nav id="mmenu">
+        <?php
+        wp_nav_menu( array(
+                'theme_location'    => 'mobile-menu',
+                'depth'             => 2,
+            )
+        );
+        ?>
+    </nav>
+</div>
 
 <?php wp_footer(); ?>
 
-</body></html>
+</body>
+</html>

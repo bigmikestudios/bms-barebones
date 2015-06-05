@@ -1,18 +1,16 @@
 <?php get_header(); ?>
   <?php while ( have_posts() ) : the_post(); ?>
-    <?php $blocks = get_field('blocks'); ?>
-    <?php if ($blocks): ?>
-      <?php foreach ($blocks as $block): ?>
-        <?php the_block($block); ?>
-      <?php endforeach ?>
-    <?php endif; ?>
-    <?php $global_blocks = get_field('global_blocks'); ?>
-    <?php if ($global_blocks): ?>
-
-      <?php foreach ($global_blocks as $item): ?>
-        <?php the_global_block($item['global_block']); ?>
-      <?php endforeach ?>
-    <?php endif; ?>
-
+    <div class="strata content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <?php get_template_part("content",$post->post_type); ?>
+                </div>
+                <div class="col-md-4">
+                    <?php get_template_part("sidebar",$post->post_type); ?>
+                </div>
+            </div>
+        </div>
+    </div>
   <?php endwhile; ?>
 <?php get_footer(); ?>

@@ -80,10 +80,7 @@
             <!-- put here to push the rest of the content below the navbar. -->
         </div>
 
-        <!-- DESKTOP NAV -->
-        <nav class="navbar hidden-xs hidden-sm" role="navigation">
-
-            <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="strata branding visible-md visible-lg">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -91,8 +88,19 @@
                             <a class="home-button" href="<?php echo site_url(); ?>"><?php echo bloginfo('blog_title'); ?></a>
                         </h1>
                     </div>
-                    <?php wp_nav_menu(array('theme_location' => 'primary-menu')); ?>
                 </div>
             </div>
-        </nav>
+        </div>
+
+        <!-- DESKTOP NAV -->
+        <div class="strata desktop-navbar visible-md visible-lg">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php wp_nav_menu(array('theme_location' => 'primary-menu')); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
 

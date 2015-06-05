@@ -13,11 +13,13 @@
                     </div>
 
                     <!-- bloc-21 -->
+                    <?php if (has_post_thumbnail($post->ID)): ?>
                     <div class="row">
                         <div class="col-sm-12">
                             <?php echo image_div(get_post_thumbnail_url($post->ID), '12x5'); ?>
                         </div>
                     </div>
+                    <?php endif; ?>
                     <!-- bloc-21 END -->
 
                     <!-- bloc-22 -->
@@ -46,9 +48,5 @@
         </div>
     </div>
 </div>
-
-<?php the_global_block('clients-block'); ?>
-<?php the_global_block('newsletter-block'); ?>
-<?php the_global_block('contact-block'); ?>
 
 <?php get_footer(); ?>
