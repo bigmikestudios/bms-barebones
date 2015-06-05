@@ -13,10 +13,22 @@
 
 // INCLUDES
 // for bootstrap type nav...
-require 'inc/wp_bootstrap_navwalker.php';
+// require 'inc/wp_bootstrap_navwalker.php';
+// if you decide to use this, call it in the template like so:
+/*
+wp_nav_menu(array(
+        'theme_location' => 'primary-menu',
+        'depth' => 2,
+        'container' => 'div',
+        'container_class' => 'collapse navbar-collapse navbar-ex1-collapse',
+        'menu_class' => 'nav navbar-nav',
+        'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
+        'walker' => new wp_bootstrap_navwalker())
+);
+*/
 
 // for home page slider and any other acf fields...
-require 'inc/acf_fields.inc.php';
+//require 'inc/acf_fields.inc.php';
 
 // for recommended and required plugins...
 require 'inc/required-recommended-plugins.inc.php';
@@ -30,11 +42,8 @@ require 'inc/blocks.inc.php';
 // define custom post types...
 require 'inc/custom.post.types.inc.php';
 
-// define custom post types...
-require 'inc/move-admin-bar-to-bottom.inc.php';
-
-// for Sliders
-add_image_size ('1280x534px',1280, 534, true );
+// move admin bar to the bottom. This is useful if you are using off-canvas menus...
+// require 'inc/move-admin-bar-to-bottom.inc.php';
 
 // =============================================================================
 
@@ -231,11 +240,6 @@ function bms_custom_remove_dashboard_widgets() {
     unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
 
     unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
-
-    //$wp_meta_boxes['dashboard']['normal']['core']['dashboard_welcome'] = Array('id' => 'dashboard_welcome','title' => 'Administration Interface', 'callback' => 'wp_dashboard_welcome', 'args' =>'');
-    //$wp_meta_boxes['dashboard']['normal']['core']['dashboard_shortcodes'] = Array('id' => 'dashboard_shortcode','title' => 'Important Shortcodes', 'callback' => 'wp_dashboard_shortcode', 'args' =>'');
-    //$wp_meta_boxes['dashboard']['side']['core']['dashboard_support'] = Array('id' => 'dashboard_support','title' => 'Support', 'callback' => 'wp_dashboard_support', 'args' =>'');
-    //$wp_meta_boxes['dashboard']['side']['core']['dashboard_links'] = Array('id' => 'dashboard_links','title' => 'Post Feature Images', 'callback' => 'wp_dashboard_links', 'args' =>'');
 
 }
 add_action('wp_dashboard_setup', 'bms_custom_remove_dashboard_widgets' );

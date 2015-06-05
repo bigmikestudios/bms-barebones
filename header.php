@@ -37,6 +37,26 @@
     -->
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>"/>
 
+    <!--enables hover state on touch devices...-->
+    <script>
+        document.addEventListener("touchstart", function(){}, true);
+    </script>
+    <style>
+        /*enables hover state on touch devices*/
+        a:hover, a:active {
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            -webkit-user-select: none;
+            -webkit-touch-callout: none
+        }
+        /* hides admin bar on mobile*/
+        @media screen and ( max-width: 991px ) {
+            #wpadminbar { display: none;}
+            html { margin-top: 0 !important; }
+            * html body { margin-top: 0 !important; }
+        }
+    </style>
+
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -57,7 +77,7 @@
             </div>
         </div>
         <div class="strata mobile-spacer visible-xs visibel-sm">
-            <!-- put here to push the rest of the content below the navbar. -->2
+            <!-- put here to push the rest of the content below the navbar. -->
         </div>
 
         <!-- DESKTOP NAV -->
@@ -67,20 +87,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1><a href="<?php echo site_url(); ?>"><?php echo bloginfo('title'); ?></a></h1>
+                        <h1 class="home-button-wrapper">
+                            <a class="home-button" href="<?php echo site_url(); ?>"><?php echo bloginfo('blog_title'); ?></a>
+                        </h1>
                     </div>
-
-                    <?php
-                    wp_nav_menu(array(
-                            'theme_location' => 'primary-menu',
-                            'depth' => 2,
-                            'container' => 'div',
-                            'container_class' => 'collapse navbar-collapse navbar-ex1-collapse',
-                            'menu_class' => 'nav navbar-nav',
-                            'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
-                            'walker' => new wp_bootstrap_navwalker())
-                    );
-                    ?>
+                    <?php wp_nav_menu(array('theme_location' => 'primary-menu')); ?>
                 </div>
             </div>
         </nav>
