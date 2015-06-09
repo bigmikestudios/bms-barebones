@@ -60,6 +60,13 @@ if ( ! function_exists( 'bms_custom_setup' ) ):
 endif; // bms_custom_setup
 
 // =============================================================================
+// CONSTANTS
+
+define('FACEBOOK_LINK', 'https://www.facebook.com/roofixinc');
+define('LINKEDIN_LINK', 'https://www.linkedin.com');
+define('GOOOGLEPLUS_LINK', 'https://plus.google.com/108387352072337871049/posts');
+
+// =============================================================================
 
 //////////////////////////
 //

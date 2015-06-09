@@ -83,10 +83,20 @@
         <div class="strata branding visible-md visible-lg">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-3">
                         <h1 class="home-button-wrapper">
-                            <a class="home-button" href="<?php echo site_url(); ?>"><?php echo bloginfo('blog_title'); ?></a>
+                            <a class="home-button" href="<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a>
                         </h1>
+                    </div>
+                    <div class="col-md-6">
+                        <?php bloginfo('description'); ?>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="social_media">
+                            <li class="facebook"><a href="<?php echo FACEBOOK_LINK; ?>" target="_blank">Facebook</a></li>
+                            <li class="linkedin"><a href="<?php echo LINKEDIN_LINK; ?>" target="_blank">LinkedIn</a></li>
+                            <li class="googleplus"><a href="<?php echo GOOOGLEPLUS_LINK; ?>" target="_blank">Google+</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
