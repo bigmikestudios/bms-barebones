@@ -78,8 +78,26 @@ function my_theme_register_required_plugins() {
         ),
 
         array(
+            'name'      => 'Contact Form 7 Honeypot',
+            'slug'      => 'contact-form-7-honeypot',
+            'required'  => false,
+        ),
+
+        array(
             'name'      => 'Contact Form 7',
             'slug'      => 'contact-form-7',
+            'required'  => false,
+        ),
+
+        array(
+            'name'      => 'Cleverness To-Do List',
+            'slug'      => 'cleverness-to-do-list',
+            'required'  => false,
+        ),
+
+        array(
+            'name'      => 'Advanced Automatic Updates',
+            'slug'      => 'automatic-updater',
             'required'  => false,
         ),
 
@@ -92,12 +110,6 @@ function my_theme_register_required_plugins() {
         array(
             'name'      => 'BackWPup Free',
             'slug'      => 'backwpup',
-            'required'  => false,
-        ),
-
-        array(
-            'name'      => 'Enable Media Replace',
-            'slug'      => 'enable-media-replace',
             'required'  => false,
         ),
 
@@ -120,8 +132,16 @@ function my_theme_register_required_plugins() {
         ),
 
         array(
-            'name'      => 'WP Migrate DB',
+            'name'      => 'Post Type Archive Link',
+            'slug'      => 'post-type-archive-links',
+            'required'  => false,
+        ),
+
+        array(
+            'name'      => 'WP Migrate Pro',
             'slug'      => 'wp-migrate-db',
+            'source'             =>"/".$premium_wp_plugins_path . '/wp-migrate-db-pro.zip',
+            'external_url'    => $premium_wp_plugins_dir . '/wp-migrate-db',
             'required'  => false,
         ),
 
