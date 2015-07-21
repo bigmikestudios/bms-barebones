@@ -30,6 +30,38 @@ jQuery(function ($) {
             m.set('bars');
             $('.mobile-navbar').css('top',0);
         }
+
+        /* ANIMATE IN ON SCROLL ========================== */
+        $(window).scroll(function() {
+            $('.on-scroll').each(function(){
+                var lag = 200;
+                var imagePos = $(this).offset().top;
+                var topOfWindow = $(window).scrollTop();
+                var heightOfWindow = $(window).height();
+                var startScrollPoint = topOfWindow + heightOfWindow;
+                var transition = "fadeIn";
+
+                // which transition?
+                var classList =$(this).attr('class').split(/\s+/);
+                $.each( classList, function(index, item){
+                    if (item.match("^os-")) {
+                        transition = item.slice(3);
+                    }
+                });
+                function scrollInClass(element){
+                    console.log(element);
+                    if (!element.hasClass('animated')) {
+                        element.addClass("animated");
+                        element.addClass(transition);
+                    }
+                }
+                if (!$(this).hasClass('animated')) {
+                    if (imagePos < startScrollPoint) {
+                    setTimeout(scrollInClass, 200, $(this) )
+                   }
+                }
+            });
+        });
     
 	});
 

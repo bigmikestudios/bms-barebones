@@ -19,7 +19,6 @@
         <hr/>
         <?php endwhile; ?>
       </div>
-
     </div>
   </div>
 </div>

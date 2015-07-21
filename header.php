@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <div class="strata mobile-spacer visible-xs visibel-sm">
+        <div class="strata mobile-spacer visible-xs visible-sm">
             <!-- put here to push the rest of the content below the navbar. -->
         </div>
 

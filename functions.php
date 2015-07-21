@@ -39,8 +39,9 @@ require 'inc/acf_options.inc.php';
 // for ACF Flexible Content Blocks site...
 require 'inc/blocks.inc.php';
 
-// define custom post types...
-require 'inc/custom.post.types.inc.php';
+
+// custom development particular to this client
+require 'inc/custom.inc.php';
 
 // move admin bar to the bottom. This is useful if you are using off-canvas menus...
 // require 'inc/move-admin-bar-to-bottom.inc.php';
