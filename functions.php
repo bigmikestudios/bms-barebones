@@ -46,6 +46,16 @@ require 'inc/custom.inc.php';
 // move admin bar to the bottom. This is useful if you are using off-canvas menus...
 // require 'inc/move-admin-bar-to-bottom.inc.php';
 
+// change default thumbnail sizes to work better with bootstrap:
+
+add_action( 'after_setup_theme', 'bones_theme_setup' );
+function bones_theme_setup() {
+    add_image_size( 'lg', 1170 );
+    add_image_size( 'md', 940 );
+    add_image_size( 'sm', 720 );
+}
+
+
 // =============================================================================
 
 add_action( 'after_setup_theme', 'bms_custom_setup' );
@@ -140,13 +150,33 @@ function get_post_thumbnail_url ($post_id, $size="full")
 
 // return HTML markup for a responsive image based on the custom CSS defined in this theme
 
-function image_div( $image_url, $frame_size = "square", $image_size = "full") {
+function image_div( $image, $frame_size = "square") {
     ob_start();
     ?>
-    <div class="image" style="background-image: url(<?php echo $image_url; ?>)">
-        <img src="<?php echo get_stylesheet_directory_uri()."/img/transparent_$frame_size.png"; ?>" />
-    </div>
-    <?php
+    <?php if (is_int($image)): ?>
+        <div class="image media-id-<?php echo $image; ?>">
+    <?php else: ?>
+        <div class="image" style="background-image: url(<?php echo $image; ?>)">
+    <?php endif; ?>
+            <img src="<?php echo get_stylesheet_directory_uri()."/img/transparent_$frame_size.png"; ?>" />
+        </div>
+    <?php if(is_int($image)): ?>
+        <style type="text/css">
+            .image.media-id-<?php echo $image; ?> {
+                background-image: url(<?php echo wp_get_attachment_image_src($image, "sm")[0]; ?>);
+            }
+            @media screen and ( min-width: 992px ) {
+                .image.media-id-<?php echo $image; ?> {
+                    background-image: url(<?php echo wp_get_attachment_image_src($image, "md")[0]; ?>);
+                }
+            }
+            @media screen and ( min-width: 1200px ) {
+                .image.media-id-<?php echo $image; ?> {
+                    background-image: url(<?php echo wp_get_attachment_image_src($image, "lg")[0]; ?>);
+                }
+            }
+        </style>
+    <?php endif;
     $return = ob_get_clean();
     return $return;
 }
@@ -283,12 +313,11 @@ register_sidebar(array(
 function button($atts )
 {
     $atts = shortcode_atts(array(
-        'url' => site_url(),
+        'href' => site_url(),
         'label' => "click here!",
         'new' => false,
     ), $atts, 'button');
-
-    $return = "<a class='btn btn-default' href='".$atts['url']."'";
+    $return = "<a class='btn btn-default' href='".$atts['href']."'";
     if ($atts['new']) $return .= " target='_blank'";
     $return .= ">".$atts['label']."</a>";
     return $return;

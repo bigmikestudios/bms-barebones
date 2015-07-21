@@ -11,7 +11,7 @@
         <div class="carousel-inner">
             <?php $active="active"; $i=0; foreach($block['slides'] as $slide): ?>
                 <div class="item <?php echo $active; $active=""; ?>">
-                    <?php echo image_div($slide['image']['sizes']['1280x534px'], "12x5"); ?>
+                    <?php echo image_div($slide['image']['ID'], "12x5"); ?>
                     <div class="carousel-caption">
                         <?php if ($slide['title']): ?>
                             <h2><?php echo $slide['title']; ?></h2>
@@ -31,11 +31,21 @@
                         <?php endif; ?>
                     </div>
                 </div>
-                <?php $i++; endforeach; ?>
+            <?php $i++; endforeach; ?>
         </div>
-
-
 
         <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a> <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a> </div>
+
+    <!-- preload -->
+    <script type="text/javascript">
+        jQuery([<?php
+            $imgs = array();
+            foreach($block['slides'] as $slide ){
+                $imgs[]="'".$slide['image']['sizes']['lg']."'";
+            }
+            echo implode(',', $imgs);
+            ?>]).preload();
+    </script>
+
 </div>

@@ -1,5 +1,12 @@
 // JavaScript Document
 
+// preload plugin
+jQuery.fn.preload = function() {
+    this.each(function(){
+        jQuery('<img/>')[0].src = this;
+    });
+}
+
 jQuery(function ($) {	
 	$(document).ready(function() {
 
