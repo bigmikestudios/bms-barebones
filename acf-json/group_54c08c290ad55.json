@@ -666,16 +666,9 @@
     "location": [
         [
             {
-                "param": "options_page",
+                "param": "page_template",
                 "operator": "==",
-                "value": "theme-general-settings"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "page"
+                "value": "template-blocks.php"
             }
         ]
     ],
@@ -687,6 +680,5 @@
     "hide_on_screen": [
         "the_content"
     ],
-    "modified": 1437514157,
-    "local": "json"
+    "modified": 1437677933
 }
