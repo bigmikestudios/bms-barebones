@@ -163,16 +163,16 @@ function image_div( $image, $frame_size = "square") {
     <?php if(is_int($image)): ?>
         <style type="text/css">
             .image.media-id-<?php echo $image; ?> {
-                background-image: url(<?php echo wp_get_attachment_image_src($image, "sm")[0]; ?>);
+                background-image: url(<?php $sm = wp_get_attachment_image_src($image, "sm"); echo $sm[0]; ?>);
             }
             @media screen and ( min-width: 992px ) {
                 .image.media-id-<?php echo $image; ?> {
-                    background-image: url(<?php echo wp_get_attachment_image_src($image, "md")[0]; ?>);
+                    background-image: url(<?php $md = wp_get_attachment_image_src($image, "md"); echo $md[0]; ?>);
                 }
             }
             @media screen and ( min-width: 1200px ) {
                 .image.media-id-<?php echo $image; ?> {
-                    background-image: url(<?php echo wp_get_attachment_image_src($image, "lg")[0]; ?>);
+                    background-image: url(<?php $lg = wp_get_attachment_image_src($image, "lg"); echo $lg[0]; ?>);
                 }
             }
         </style>
@@ -256,6 +256,7 @@ add_action( 'init', 'register_my_menus' );
 function register_my_menus() {
     register_nav_menus( array(
             'primary-menu' => 'Primary Menu',
+            'secondary-menu' => 'Secondary Menu',
             'mobile-menu' => 'Mobile Menu',
             'footer-menu' => 'Footer Menu'
         )

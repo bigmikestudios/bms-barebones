@@ -2,10 +2,6 @@
 
 .strata.desktop-navbar {
   background: @main-color;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: .05em;
-  .full-column { width: 920px !important; }
   ul {
     list-style: none;
     padding: 0;
@@ -52,59 +48,13 @@
     //padding: 24px 10px 22px;
     padding: 24px 5px 22px;
   }
-  .header-search-form {
-    position: relative;
-    a {
-      background-image: url(../img/icon-magnifying-glass.png);
-      background-repeat: no-repeat;
-      background-position: center right;
-      margin-right: 10px;
-      //padding-left: 10px;
-      padding-left: 5px;
-      height: 64px;
-      float: right;
-      // width: 105px;
-      width: 99px;
-      padding-top: 25px;
-    }
-    a:hover {
-      opacity: @hover-opacity;
-    }
-    div.toggle-form {
-      color: @white;
-      background: @main-color;
-      padding: 10px 20px 10px;
-      position: absolute;
-      top: 64px;
-      right: -10px;
-      z-index: 999;
-      form { margin-bottom: 0; }
-      input { color: @black }
-      input[type="image"] { width: 19px; height: 18px; /*transform: translate(0,3px)*/}
-      label { font-size: 11px }
-    }
-  }
-  .header-search-form.off {
-    div.toggle-form {
-      display: none;
-    }
-  }
-  .header-search-form.on a {
-    background-image: url(../img/icon-arrow-down.png);
-  }
 
   ul li a:hover {
     opacity: 1;
   }
 
   @media (min-width: @screen-lg) {
-    ul li a, .header-search-form a { padding: 24px 10px 22px; }
-    .header-search-form {
-      a {
-        padding-left: 10px;
-        width: 105px;
-      }
-    }
+    ul li a { padding: 24px 10px 22px; }
   }
 
   // =======================================================
@@ -121,9 +71,6 @@
   }
 
   li:hover li { float: none; }
-
-
-  .main-navigation li ul li { border-top: 0; }
 
   // =======================================================
 
@@ -142,36 +89,6 @@
   }
 
   ul:after { clear: both; }
-
-  // ======================================================= HOME BUTTON
-
-  div.home-button-wrapper {
-    position: relative;
-    a.home-button {
-      position: absolute;
-      text-indent: -9999999px;
-      background: url(../img/icon-iaf-logo.png);
-      background-size: contain;
-      background-repeat: no-repeat;
-      height: 21px;
-      width: 28px;
-      top: 22px;
-      left: -41px;
-    }
-  }
-
-  // ======================================================= MAGNIFYING GLASS
-
-  li#menu-item-49 a {
-    background-image: url(../img/icon-magnifying-glass.png);
-    background-repeat: no-repeat;
-    background-position: right center;
-    padding-right: 57px;
-  }
-
-  @media (min-width: @screen-lg) {
-    .full-column { width: 1006px !important; }
-  }
 
 
 }

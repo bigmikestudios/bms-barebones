@@ -11,8 +11,8 @@ jQuery(function ($) {
 	$(document).ready(function() {
 
         /* MARKA ICON ========================== */
-        var m = new Marka('#open_close');
-        m.set('bars').color('#000000').size(40);
+        /*var m = new Marka('#open_close');
+        m.set('bars').color('#000000').size(40);*/
 
         /* MMENU STUFF ========================== */
         $("#mmenu")
