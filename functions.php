@@ -236,9 +236,9 @@ function my_scripts_method() {
     wp_enqueue_script( 'bootstrap' );
 
     wp_register_script('mmenu', $stylesheet_dir . '/jQuery.mmenu-master/src/js/jquery.mmenu.min.js', array(), '', true);
-    wp_enqueue_script('mmenu');
+    //wp_enqueue_script('mmenu');
 
-    wp_enqueue_style('mmenu', $stylesheet_dir . '/jQuery.mmenu-master/src/css/jquery.mmenu.css');
+    //wp_enqueue_style('mmenu', $stylesheet_dir . '/jQuery.mmenu-master/src/css/jquery.mmenu.css');
 
     wp_enqueue_style('socicon', $stylesheet_dir . '/socicon/socicon.css');
 

@@ -1,4 +1,8 @@
 
+</div>
+<!--/ .page-content -->
+
+
 <div class="strata strata-footer">
     <div class="container">
         <div class="row">
@@ -38,12 +42,8 @@
     </div>
 </div>
 
-<!-- OFF CANVAS MENU WRAPPERS... -->
 </div>
-<!--/#inner-wrap-->
-</div>
-<!--/#outer-wrap-->
-<!-- END OFF CANVAS MENU WRAPPERS -->
+<!--/ .page-container -->
 
 <!-- MMENU -->
 <div class="hidden">
