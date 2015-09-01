@@ -1,5 +1,7 @@
 
 </div>
+<!--/ .page-content-inner -->
+</div>
 <!--/ .page-content -->
 
 
@@ -23,21 +25,47 @@
                 <?php endif; ?>
 
 
-                <div class="col-md-12">
+
+                <div class="col-md-11 col-md-offset-1">
+                    <h3 class="footer-brand">WATSON</h3>
                     <?php
                     wp_nav_menu(array(
                         'theme_location' => 'footer-menu',
-                        'depth' => 1,
-//                    'container' => 'div',
-//                    'container_class' => 'collapse navbar-collapse navbar-ex1-collapse',
-//                    'menu_class' => 'nav navbar-nav',
-//                    'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
-//                    'walker' => new wp_bootstrap_navwalker()
+                        'depth' => 2,
                     ));
                     ?>
                 </div>
 
+
+
+
+
+
             </footer>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-11 col-md-offset-1">
+                    <div class="subfooter-row">
+                        <div class="social-icons">
+                            <ul class="social-media">
+                                <li class="twitter"><a href="<?php echo TWITTER_LINK; ?>"<i class="socicon">a</i></a></li>
+                                <li class="linkedin"><a href="<?php echo LINKEDIN_LINK; ?>"<i class="socicon">j</i></a></li>
+                            </ul>
+                        </div>
+                        <div class="subfooter-menu">
+                            <?php
+                            wp_nav_menu(array(
+                                'theme_location' => 'subfooter-menu',
+                                'depth' => 2,
+                            ));
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

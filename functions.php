@@ -258,7 +258,8 @@ function register_my_menus() {
             'primary-menu' => 'Primary Menu',
             'secondary-menu' => 'Secondary Menu',
             'mobile-menu' => 'Mobile Menu',
-            'footer-menu' => 'Footer Menu'
+            'footer-menu' => 'Footer Menu',
+            'subfooter-menu' => 'Subfooter Menu'
         )
     );
 }

@@ -40,7 +40,7 @@ add_filter('acf/load_field/name=global_block', 'global_block_choices');
 function the_block($block){
     ?>
     <div class="strata block <?php echo $block['name']; ?>">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <?php require "blocks/".$block['acf_fc_layout'].".php"; ?>
             </div>
