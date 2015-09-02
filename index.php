@@ -2,7 +2,10 @@
 <div class="strata index-strata">
   <div class="container">
     <div class="row">
-      <div class="col-md-12 content">
+      <div class="col-md-2">
+        <?php get_sidebar(); ?>
+      </div>
+      <div class="col-md-10 content">
         <?php
 			// Pagination:
 			global $wp_query;

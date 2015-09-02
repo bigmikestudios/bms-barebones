@@ -3,11 +3,11 @@
     <div class="strata content">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
-                    <?php get_template_part("content",$post->post_type); ?>
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <?php get_template_part("sidebar",$post->post_type); ?>
+                </div>
+                <div class="col-md-10">
+                    <?php get_template_part("content",$post->post_type); ?>
                 </div>
             </div>
         </div>
