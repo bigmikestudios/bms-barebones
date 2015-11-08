@@ -1,3 +1,5 @@
+@import "style.variables.less";
+
 .mobile-navbar {
   position: fixed;
   background: @white;
@@ -8,20 +10,3 @@
 .mobile-spacer {
   height: @space;
 }
-
-@media(max-width: @screen-xs-max){}
-@media(min-width: @screen-tablet){}     /* or @screen-sm */
-@media(min-width: @screen-desktop){
-.strata-footer {
-  padding-top: @space;
-  .menu {
-    list-style: none;
-    padding: 0;
-    li {
-      display: inline;
-      margin-right: @halfspace;
-    }
-  }
-}
-}    /* or @screen-md */
-@media(min-width: @screen-lg-desktop){} /* or @screen-lg */

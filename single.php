@@ -1,47 +1,77 @@
+
+
 <?php get_header(); ?>
-<div class="strata index-strata">
+
+<div class="strata section-title">
+    <h1>Products</h1>
+</div>
+
+<div class="strata promotion">
+    <p>End of sunner BBQ Sale</p>
+    <p>Up to 70% off</p>
+</div>
+
+<div class="strata 4 buttons">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                Panel
+            </div>
+            <div class="col-md-3">
+                Panel
+            </div>
+            <div class="col-md-3">
+                Panel
+            </div>
+            <div class="col-md-3">
+                Panel
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="strata social-media">
+    <h3>The Hottest Deals</h3>
+    <p>Follow us to stay up to date on our hot deals!</p>
+    <ul>
+        <li><a href="<?php FACEBOOK_LINK; ?>">Facebook</a></li>
+        <li><a href="<?php TWITTER_LINK; ?>">Twitter</a></li>
+        <li><a href="<?php GOOGLEPLUS_LINK; ?>">Google+</a></li>
+        <li><a href="<?php MYSTERY_LINK; ?>">Mystery</a></li>
+
+        <!--<div class="col-md-3">
+                        <ul class="social_media">
+                            <li class="facebook"><a href="<?php /*echo FACEBOOK_LINK; */?>" target="_blank">Facebook</a></li>
+                            <li class="linkedin"><a href="<?php /*echo LINKEDIN_LINK; */?>" target="_blank">LinkedIn</a></li>
+                            <li class="googleplus"><a href="<?php /*echo GOOOGLEPLUS_LINK; */?>" target="_blank">Google+</a></li>
+                        </ul>
+                    </div>-->
+    </ul>
+</div>
+
+<div class="strata breadcrumb">
+    <ul>
+        <li>Path</li>
+        <li>To</li>
+        <li>Here</li>
+    </ul>
+</div>
+
+<div class="strata">
     <div class="container">
         <div class="row">
             <div class="col-md-12 content">
-
-
                 <?php while ( have_posts() ) : the_post(); ?>
 
-                    <div class="pagination">
-                        <?php echo previous_post_link('%link','<span class="glyphicon glyphicon-chevron-left"></span> Previous'); ?>
-                        <?php echo next_post_link('%link', 'Next <span class="glyphicon glyphicon-chevron-right"></span>'); ?>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <?php get_template_part('sidebar', $post->post_type); ?>
+                        </div>
+                        <div class="col-md-9">
+                            <?php get_template_part('content', $post->post_type); ?>
+                        </div>
                     </div>
 
-                    <!-- bloc-21 -->
-                    <?php if (has_post_thumbnail($post->ID)): ?>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <?php echo image_div(get_post_thumbnail_url($post->ID), '12x5'); ?>
-                        </div>
-                    </div>
-                    <?php endif; ?>
-                    <!-- bloc-21 END -->
-
-                    <!-- bloc-22 -->
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <h1><a href="<?php the_permalink(); ?>">
-                                    <?php the_title(); ?>
-                                </a></h1>
-                        </div>
-                        <div class="col-sm-8">
-                            <?php the_content(); ?>
-                            <?php
-                            $pdf = get_field('pdf');
-                            if ($pdf): ?>
-                                <?php $pdf = wp_get_attachment_url($pdf);?>
-                                <p>
-                                    <?php echo do_shortcode("[button label='Download as PDF' url='$pdf' new='true' ]"); ?>
-                                </p>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                    <!-- bloc-22 END -->
                 <?php endwhile; ?>
             </div>
 

@@ -1,13 +1,13 @@
-// CUSTOM LESS FOR DUNLOP WESTERN STAR
+// CUSTOM LESS FOR THIS PROJECT
+
+@import "style.variables.less";
 
 // GENERALLY SPEAKING
 
 .body-font {
-  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .headline-font {
-  font-family: 'Alfa Slab One', cursive;
   text-transform: uppercase;
 }
 
@@ -17,4 +17,84 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   .headline-font;
+}
+
+// ================================================================================================== GENERALLY SPEAKING...
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: @main-color;
+}
+a { color: @main-color; }
+a:hover {
+  color: inherit;
+  opacity: @hover-opacity;
+  text-decoration: none;
+}
+// ============================================================================================================== HEADER
+
+.home-button-wrapper .home-button {
+  background-image: url(../img/logo.jpg);
+  height: 71px;
+  width: 180px;
+  display: block;
+  text-indent: -9999px;
+}
+.call-to-action {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  .cta-wrapper {
+    .cta-inner {
+
+      margin-top: @space;
+      border-radius: 5px;
+      .black-glow;
+      float: right;
+      padding: 10px 0;
+      > div {
+        float: left;
+        text-align: center;
+        p {
+          margin: 0;
+        }
+      }
+      .left { width: 180px; }
+      .middle {
+        width: 50px;
+        height: 10px;
+        position: relative;
+        .icon-wrapper {
+          position: absolute;
+          width: 70px;
+          height: 70px;
+          top: -20px;
+          left: -10px;
+          background: @main-color;
+          border: 6px solid @white;
+          border-radius: 999px;
+          color: @white;
+          .black-glow;
+          font-size: 30px;
+          padding-top: 8px;
+          a { color: @white; }
+
+        }
+      }
+      .right {
+        width: 180px;
+        p {
+          margin-top: 8px;
+        }
+      }
+
+    }
+  }
+}
+
+
+// ============================================================================================================= SIDEBAR
+
+.taxonomy .current {
+  .mark;
 }

@@ -1,8 +1,7 @@
 
 // get bootstrap!
-@import "../bootstrap/less/bootstrap.less";
+// @import "../bootstrap/less/bootstrap.less"; uncomment to use, and remove the CDN reference in Functions.php
 @import "style.variables.less";
-@import "style.mixins.less";
 @import "style.theme-defaults.less";
 @import "style.dropdown-menu.less";
 
@@ -12,11 +11,21 @@
 
 @import "style.custom.less";
 
-@import "style.animate.less";
 
-@media(max-width: @screen-xs-max){}
-@media(min-width: @screen-tablet){}     /* or @screen-sm */
-@media(min-width: @screen-desktop){
+// @import "style.animate.less";
+
+@media(max-width: @screen-xs-max){
+  @import "style.mobile.only.less";
+}
+@media(min-width: @screen-sm-min){
+  @import "style.tablet.less";
+}
+@media(min-width: @screen-md-min){
   @import "style.desktop.less";
 }
-@media(min-width: @screen-lg-desktop){} /* or @screen-lg */
+@media(min-width: @screen-lg-min){
+ @import "style.desktop.large.less";
+}
+
+/* worky? */
+

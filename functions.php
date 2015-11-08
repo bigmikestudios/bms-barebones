@@ -189,12 +189,12 @@ function image_div( $image, $frame_size = "square") {
 
 // =============================================================================
 
-// compile less
+// compile less on the fly with PHP
 // only if we aren't in admin:
+/*
 if (is_admin() or (in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php', 'xmlrpc.php')))) {
     // silence is golden
 } else {
-
     require 'inc/less.php/Cache.php';
     Less_Cache::$cache_dir = get_template_directory() . '/css-cache';
 
@@ -213,8 +213,8 @@ if (is_admin() or (in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-regis
     }
 
     add_action('wp_enqueue_scripts', 'my_styles_method');
-
 }
+*/
 
 // =============================================================================
 
@@ -230,24 +230,29 @@ if (is_admin() or (in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-regis
 function my_scripts_method() {
     $stylesheet_dir = get_bloginfo('stylesheet_directory');
 
-    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', array('jquery'), '1.9.1', true); // we need the jquery library for bootsrap js to function
+    wp_enqueue_script( 'bootstrap-js', '//netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js', array('jquery'), true); // all the bootstrap javascript goodness
+    wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css');
 
-    wp_register_script( 'bootstrap', $stylesheet_dir.'/bootstrap/js/bootstrap.min.js');
-    wp_enqueue_script( 'bootstrap' );
+    // uncomment to use local bootstrap stuff
+    //wp_register_script( 'bootstrap', $stylesheet_dir.'/bootstrap/js/bootstrap.min.js');
+    //wp_enqueue_script( 'bootstrap' );
 
     wp_register_script('mmenu', $stylesheet_dir . '/jQuery.mmenu-master/src/js/jquery.mmenu.min.js', array(), '', true);
-    //wp_enqueue_script('mmenu');
+    wp_enqueue_script('mmenu');
 
-    //wp_enqueue_style('mmenu', $stylesheet_dir . '/jQuery.mmenu-master/src/css/jquery.mmenu.css');
+    wp_enqueue_style('mmenu', $stylesheet_dir . '/jQuery.mmenu-master/src/css/jquery.mmenu.css');
 
     wp_enqueue_style('socicon', $stylesheet_dir . '/socicon/socicon.css');
 
     wp_register_script('marka', $stylesheet_dir . '/marka-0.3.1/src/js/marka.js', array(), '', true);
     wp_enqueue_script('marka');
 
-
     wp_register_script( 'script', $stylesheet_dir.'/js/script.js');
     wp_enqueue_script( 'script' );
+
+    wp_enqueue_style('style-less', $stylesheet_dir . '/less/style.css');
+
 }
 add_action('wp_enqueue_scripts', 'my_scripts_method');
 
