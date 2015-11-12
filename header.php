@@ -60,61 +60,64 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <div class="page-container">
-        <!-- MOBILE NAV (note that the HTML this exposes is in the footer) -->
-        <div class="strata mobile-navbar visible-xs visible-sm">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-2"><a href="#mmenu"><i id="open_close"></i></a></div>
-                    <div class="col-xs-10 text-right"><a href="<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a>
+<div class="page-container">
+    <div class="page-inner">
+    <!-- MOBILE NAV (note that the HTML this exposes is in the footer) -->
+    <div class="strata mobile-navbar visible-xs visible-sm">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-2"><a href="#mmenu"><i id="open_close"></i></a></div>
+                <div class="col-xs-10 text-right">
+                    <p class="home-button-wrapper">
+                        <a class="home-button" href="<?php echo site_url(); ?>"> </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="strata mobile-spacer visible-xs visible-sm">
+        <!-- put here to push the rest of the content below the navbar. -->
+    </div>
+
+    <div class="strata branding visible-md visible-lg">
+        <div class="top-decoration"> </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <p class="home-button-wrapper">
+                        <a class="home-button" href="<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a>
+                    </p>
+                </div>
+                <div class="col-md-9">
+                    <div class="call-to-action">
+                        <div class="cta-wrapper">
+                            <div class="cta-inner">
+                                <div class="left">
+                                    <p><a href="tel:+1403-273-0000">Call Now<br>403-273-0000</a></p>
+                                </div>
+                                <div class="middle">
+                                    <div class="icon-wrapper">
+                                        <a href="<?php echo SERVICE_APPT_URI; ?>">
+                                            <i class="fa fa-calendar"> </i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <p><a href="<?php echo SERVICE_APPT_URI; ?>">Book a service appt</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="desktop-navbar">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <?php wp_nav_menu(array('theme_location' => 'primary-menu')); ?>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="strata mobile-spacer visible-xs visible-sm">
-            <!-- put here to push the rest of the content below the navbar. -->
-        </div>
+    </div>
 
-        <div class="strata branding visible-md visible-lg">
-            <div class="top-decoration"> </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                    </div>
-                    <div class="col-md-4">
-                        <h1 class="home-button-wrapper">
-                            <a class="home-button" href="<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a>
-                        </h1>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="description"><?php bloginfo('description'); ?></div>
-                    </div>
-                    <!--<div class="col-md-3">
-                        <ul class="social_media">
-                            <li class="facebook"><a href="<?php /*echo FACEBOOK_LINK; */?>" target="_blank">Facebook</a></li>
-                            <li class="linkedin"><a href="<?php /*echo LINKEDIN_LINK; */?>" target="_blank">LinkedIn</a></li>
-                            <li class="googleplus"><a href="<?php /*echo GOOOGLEPLUS_LINK; */?>" target="_blank">Google+</a></li>
-                        </ul>
-                    </div>-->
-                </div>
-            </div>
-        </div>
 
-        <!-- DESKTOP NAV -->
-        <div class="strata desktop-navbar visible-md visible-lg">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <?php wp_nav_menu(array('theme_location' => 'primary-menu')); ?>
-                    </div>
-                    <div class="col-md-8">
-                        <?php wp_nav_menu(array('theme_location' => 'secondary-menu')); ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- PAGE CONTENT -->
-        <div class="page-content">
-            <div class="page-content-inner">
+    <!-- PAGE CONTENT -->
+    <div class="page-content">
+        <div class="page-content-inner">

@@ -2,16 +2,10 @@
 
 @hover-opacity: 0.7;
 @white: #fff;
+@fog: #f5f5f5;
+@storm: #dcdcdc;
+@grey: #7d7d7d;
 @black: #000;
-
-@cyan: #5dc8f2;
-@green: #87c869;
-@orange: #faa449;
-@blue: #3e71b5;
-@purple: #a86bab;
-@grey: #939598;
-@red: #db2032;
-@pale: #f0f1f3;
 
 @twitter-color: #28aae1;
 @linkedin-color: #007bb6;
@@ -38,11 +32,26 @@
   background-repeat: no-repeat;
   img { width: 100%; height: auto }
 }
+.image.contain {
+  background-size: contain;
+}
 .black-glow {
   -webkit-box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.4);
   -moz-box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.4);
   box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.4);
 }
+.no-glow {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.inner-black-glow {
+  -moz-box-shadow:    inset 0 0 80px #000000;
+  -webkit-box-shadow: inset 0 0 80px #000000;
+  box-shadow:         inset 0 0 80px #000000;
+}
+
 .transition-all {
   -webkit-transition: all 500ms ease;
   -moz-transition: all 500ms ease;
@@ -57,4 +66,26 @@
 }
 .mark {
   outline: 1px dotted red;
+}
+.clearfix {
+  // fixes phpstorm lesscss processor
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.text-shadow {
+  text-shadow: 0px 0px 18px rgba(0, 0, 0, 1);
+}
+
+.body-font {
+  font-family: 'Lato', sans-serif;
+}
+
+.headline-font {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
 }

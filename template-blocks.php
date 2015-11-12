@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: Blocks
+ * xTemplate Name: Blocks
  */
 ?>
 <?php get_header(); ?>

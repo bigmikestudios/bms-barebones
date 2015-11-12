@@ -50,6 +50,7 @@ require 'inc/custom.inc.php';
 
 add_action( 'after_setup_theme', 'bones_theme_setup' );
 function bones_theme_setup() {
+    add_image_size( 'max', 1440 );
     add_image_size( 'lg', 1170 );
     add_image_size( 'md', 940 );
     add_image_size( 'sm', 720 );
@@ -69,13 +70,6 @@ if ( ! function_exists( 'bms_custom_setup' ) ):
 
     }
 endif; // bms_custom_setup
-
-// =============================================================================
-// CONSTANTS
-
-define('FACEBOOK_LINK', 'https://www.facebook.com/roofixinc');
-define('LINKEDIN_LINK', 'https://www.linkedin.com');
-define('GOOOGLEPLUS_LINK', 'https://plus.google.com/108387352072337871049/posts');
 
 // =============================================================================
 
@@ -238,15 +232,7 @@ function my_scripts_method() {
     //wp_register_script( 'bootstrap', $stylesheet_dir.'/bootstrap/js/bootstrap.min.js');
     //wp_enqueue_script( 'bootstrap' );
 
-    wp_register_script('mmenu', $stylesheet_dir . '/jQuery.mmenu-master/src/js/jquery.mmenu.min.js', array(), '', true);
-    wp_enqueue_script('mmenu');
 
-    wp_enqueue_style('mmenu', $stylesheet_dir . '/jQuery.mmenu-master/src/css/jquery.mmenu.css');
-
-    wp_enqueue_style('socicon', $stylesheet_dir . '/socicon/socicon.css');
-
-    wp_register_script('marka', $stylesheet_dir . '/marka-0.3.1/src/js/marka.js', array(), '', true);
-    wp_enqueue_script('marka');
 
     wp_register_script( 'script', $stylesheet_dir.'/js/script.js');
     wp_enqueue_script( 'script' );

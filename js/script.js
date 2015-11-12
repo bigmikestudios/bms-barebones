@@ -10,9 +10,12 @@ jQuery.fn.preload = function() {
 jQuery(function ($) {	
 	$(document).ready(function() {
 
+        /* SWIPEBOX ========================== */
+        $( '.swipebox' ).swipebox();
+
         /* MARKA ICON ========================== */
-        /*var m = new Marka('#open_close');
-        m.set('bars').color('#000000').size(40);*/
+        var m = new Marka('#open_close');
+        m.set('bars').color('#000000').size(40);
 
         /* MMENU STUFF ========================== */
         $("#mmenu")
@@ -38,36 +41,33 @@ jQuery(function ($) {
             $('.mobile-navbar').css('top',0);
         }
 
-        /* ANIMATE IN ON SCROLL ========================== */
-        $(window).scroll(function() {
-            $('.on-scroll').each(function(){
-                var lag = 200;
-                var imagePos = $(this).offset().top;
-                var topOfWindow = $(window).scrollTop();
-                var heightOfWindow = $(window).height();
-                var startScrollPoint = topOfWindow + heightOfWindow;
-                var transition = "fadeIn";
+        /* STICKY SIDEBAR ========================== */
 
-                // which transition?
-                var classList =$(this).attr('class').split(/\s+/);
-                $.each( classList, function(index, item){
-                    if (item.match("^os-")) {
-                        transition = item.slice(3);
-                    }
-                });
-                function scrollInClass(element){
-                    console.log(element);
-                    if (!element.hasClass('animated')) {
-                        element.addClass("animated");
-                        element.addClass(transition);
-                    }
+
+        var $sidebar = $('div.sidebar.sidebar-product');
+        var sidebarOffset = $sidebar.offset();
+        var sidebarTopInitial = sidebarOffset.top;
+        var sidebarLeftInitial = sidebarOffset.left;
+
+        $(window).scroll(function() {
+            // only on the desktop...
+            if ($(window).width() > 992) {
+                var sidebarHeight = $sidebar.height();
+                var $rowContainer = $sidebar.closest('.row');
+                var rowContainerOffset = $rowContainer.offset();
+                var rowContainerTop = rowContainerOffset.top;
+                var rowContainerHeight = $rowContainer.height();
+                var currentPos = $(window).scrollTop();
+                var onPoint = rowContainerTop;
+                var offPoint = rowContainerTop + rowContainerHeight - sidebarHeight;
+                if (currentPos < onPoint) {
+                    $sidebar.offset({left: sidebarLeftInitial, top: sidebarTopInitial });
+                } else if ( currentPos > offPoint ) {
+                    $sidebar.offset({left: sidebarLeftInitial, top: offPoint });
+                } else {
+                    $sidebar.offset({left: sidebarLeftInitial, top: currentPos });
                 }
-                if (!$(this).hasClass('animated')) {
-                    if (imagePos < startScrollPoint) {
-                    setTimeout(scrollInClass, 200, $(this) )
-                   }
-                }
-            });
+            }
         });
     
 	});

@@ -1,1 +1,50 @@
 @import "style.variables.less";
+
+// ================================================================================================================ BLOG
+
+.contentlisting {
+  .post-excerpt {
+    h3:first-child {
+      margin-top: 0;
+    }
+  }
+}
+// ======================================================================================================= PAGE ELEMENTS
+
+// PROMOTION
+.promotion-4-panels-wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+// ============================================================================================================ HOMEPAGE
+
+body.page-template-template-home {
+  .featured-image {
+    position: relative;
+    .featured-image-overlay {
+      .text-shadow;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      color: @white;
+      h3 {
+        font-size: 40px;
+      }
+      p {
+        font-size: 20px;
+      }
+      a, h3, h3 a {
+        color: @white;
+      }
+      .social-icons-list li a {
+        border-color: @white;
+        .black-glow;
+      }
+      padding-top: 27%;
+    }
+  }
+}
