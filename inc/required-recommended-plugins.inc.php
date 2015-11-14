@@ -20,8 +20,8 @@ add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
  * TGM_Plugin_Activation class constructor.
  */
 function my_theme_register_required_plugins() {
-    $premium_wp_plugins_dir = "file://Users/mikelathrop/Dropbox/1work/Install\ Media/WP\ Addons";
-    $premium_wp_plugins_path = "/Users/mikelathrop/Dropbox/1work/Install\ Media/WP\ Addons";
+    $premium_wp_plugins_dir = "file:///Users/mikelathrop/Dropbox/1work/Install%5C%5C%20Media/WP%5C%5C%20Addons";
+    $premium_wp_plugins_path = "/Users/mikelathrop/Dropbox/1work/Install%5C%5C%20Media/WP%5C%5C%20Addons";
     /**
      * Array of plugin arrays. Required keys are name and slug.
      * If the source is NOT from the .org repo, then source is also required.
@@ -54,7 +54,7 @@ function my_theme_register_required_plugins() {
             'name'      => 'Advanced Custom Fields Pro',
             'slug'      => 'advanced-custom-fields-pro',
             'source'             =>"/".$premium_wp_plugins_path . '/advanced-custom-fields-pro.zip',
-            'external_url'    => $premium_wp_plugins_dir . '/advanced-custom-fields-pro',
+            'external_url'    => $premium_wp_plugins_dir . '/advanced-custom-fields-pro.zips',
             'required'  => true,
         ),
 

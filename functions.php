@@ -1,7 +1,6 @@
 <?php
-/* @todo: Set up MMenu instead of the current off canvas menu */
-/* @todo: Get rid of widgets */
-/* @todo: get rid of bootstrap nav - just use off canvas and the animated icon */
+
+
 
 // =============================================================================
 
@@ -56,6 +55,28 @@ function bones_theme_setup() {
     add_image_size( 'sm', 720 );
 }
 
+// ============================================================================================ DEBUGGING WHEN LOGGED IN
+
+/*
+THIS WILL SET A COOKIE FOR WP-CONFIG ON THE NEXT RELOAD FROM THIS SERVER, FOR THE NEXT 24 HOURS.
+
+FOR THIS TO WORK, COPY/PASTE THE FOLLOWING INTO WP-CONFIG:
+
+if ( isset( $_COOKIE['wp_hebqohub_debug'] ) && 'on' === $_COOKIE['wp_hebqohub_debug'] ) {
+	define( 'WP_DEBUG', true );
+} else {
+	define( 'WP_DEBUG', false );
+}
+
+*/
+
+function bms_admin_debug( $user_login, $user )
+{
+    if ( in_array( 'administrator', $user->roles ) ) {
+        setcookie('wp_hebqohub_debug', 'on', (time()+3600), "/");
+    }
+}
+add_action( 'wp_login', 'bms_admin_debug', 10, 2 );
 
 // =============================================================================
 

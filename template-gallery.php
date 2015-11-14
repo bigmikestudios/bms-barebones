@@ -3,33 +3,21 @@
   * Template Name: Gallery Page
   */
 get_header(); ?>
+
+
+<?php get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 
-    <!-- === FEATURED IMAGE === -->
+    <div class="strata section-title">
+        <h1><?php the_title(); ?></h1>
+    </div>
 
-    <?php
-    $featured_image = false;
-    $featured_image = get_post_thumbnail_url($post->ID, 'max' )  ;
-    get_template_part ('snip_featured_image'); ?>
-
-    <!-- === TITLE === -->
-
-    <?php
-    if (get_field('show_title') == true):
-        $display_title = get_field('page_display_title');
-        $title = ($display_title) ? $display_title : get_the_title();
-        ?>
-        <div class="strata section-title">
-            <h1><?php echo $title ?></h1>
-        </div>
-    <?php endif; ?>
-
-    <!-- === CONTENT === -->
+    <?php get_template_part ('snip_featured_image'); ?>
 
     <?php $the_content = get_the_content(); if ($the_content): ?>
         <div class="strata content">
             <div class="container">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-12">
                     <?php echo apply_filters('the_content', $the_content) ?>
                 </div>
             </div>
@@ -60,7 +48,6 @@ get_header(); ?>
         </div>
 
     <?php endif; ?>
-
 
 <?php endwhile; ?>
 <?php get_footer(); ?>

@@ -59,6 +59,10 @@
   font-weight: bold;
   text-transform: uppercase;
 }
+.greyscale {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
 .page-container {
   background: #000;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d94226+0,000000+50 */
@@ -89,16 +93,4 @@
   max-width: 1440px;
   background: #fff;
   margin: 0 auto;
-}
-body.page-template-template-home .featured-image .featured-image-overlay {
-  padding-top: 27%;
-}
-body.page-template-template-home .featured-image .featured-image-overlay h3 {
-  font-size: 80px;
-}
-body.page-template-template-home .featured-image .featured-image-overlay p {
-  font-size: 35px;
-}
-body.page-template-template-home .featured-image .featured-image-overlay .social-icons-list li a {
-  margin: 10px;
 }

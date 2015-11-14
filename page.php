@@ -1,15 +1,11 @@
 <?php get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 
-    <?php get_template_part ('snip_featured_image'); ?>
-
-    <?php if (get_field('show_title') == true): ?>
     <div class="strata section-title">
         <h1><?php the_title(); ?></h1>
     </div>
-    <?php endif; ?>
 
-    <?php if (get_field('show_promotion') ==  true) get_template_part ('snip_promotion'); ?>
+    <?php get_template_part ('snip_featured_image'); ?>
 
     <?php $the_content = get_the_content(); if ($the_content): ?>
     <div class="strata content">

@@ -12,6 +12,7 @@
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
     <meta charset="<?php bloginfo('charset'); ?>">
     <title>
         <?php wp_title(); ?>
@@ -62,6 +63,7 @@
 <body <?php body_class(); ?>>
 <div class="page-container">
     <div class="page-inner">
+
     <!-- MOBILE NAV (note that the HTML this exposes is in the footer) -->
     <div class="strata mobile-navbar visible-xs visible-sm">
         <div class="container-fluid">
@@ -79,8 +81,8 @@
         <!-- put here to push the rest of the content below the navbar. -->
     </div>
 
+    <!-- BRANDING -->
     <div class="strata branding visible-md visible-lg">
-        <div class="top-decoration"> </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -89,24 +91,6 @@
                     </p>
                 </div>
                 <div class="col-md-9">
-                    <div class="call-to-action">
-                        <div class="cta-wrapper">
-                            <div class="cta-inner">
-                                <div class="left">
-                                    <p><a href="tel:+1403-273-0000">Call Now<br>403-273-0000</a></p>
-                                </div>
-                                <div class="middle">
-                                    <div class="icon-wrapper">
-                                        <a href="<?php echo SERVICE_APPT_URI; ?>">
-                                            <i class="fa fa-calendar"> </i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="right">
-                                    <p><a href="<?php echo SERVICE_APPT_URI; ?>">Book a service appt</a></p>
-                                </div>
-                            </div>
-                        </div>
                         <div class="desktop-navbar">
                             <!-- Brand and toggle get grouped for better mobile display -->
                             <?php wp_nav_menu(array('theme_location' => 'primary-menu')); ?>
@@ -116,8 +100,7 @@
             </div>
         </div>
     </div>
-
-
+    
     <!-- PAGE CONTENT -->
     <div class="page-content">
         <div class="page-content-inner">

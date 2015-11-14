@@ -59,6 +59,10 @@
   font-weight: bold;
   text-transform: uppercase;
 }
+.greyscale {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
 .desktop-navbar ul {
   list-style: none;
   padding: 0;
