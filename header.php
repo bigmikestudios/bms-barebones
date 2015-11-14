@@ -64,33 +64,33 @@
 <div class="page-container">
     <div class="page-inner">
 
-    <!-- MOBILE NAV (note that the HTML this exposes is in the footer) -->
-    <div class="strata mobile-navbar visible-xs visible-sm">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-2"><a href="#mmenu"><i id="open_close"></i></a></div>
-                <div class="col-xs-10 text-right">
-                    <p class="home-button-wrapper">
-                        <a class="home-button" href="<?php echo site_url(); ?>"> </a>
-                    </p>
+        <!-- MOBILE NAV (note that the HTML this exposes is in the footer) -->
+        <div class="strata mobile-navbar visible-xs visible-sm">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-2"><a href="#mmenu"><i id="open_close"></i></a></div>
+                    <div class="col-xs-10 text-right">
+                        <p class="home-button-wrapper">
+                            <a class="home-button" href="<?php echo site_url(); ?>"> </a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="strata mobile-spacer visible-xs visible-sm">
-        <!-- put here to push the rest of the content below the navbar. -->
-    </div>
+        <div class="strata mobile-spacer visible-xs visible-sm">
+            <!-- put here to push the rest of the content below the navbar. -->
+        </div>
 
-    <!-- BRANDING -->
-    <div class="strata branding visible-md visible-lg">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <p class="home-button-wrapper">
-                        <a class="home-button" href="<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a>
-                    </p>
-                </div>
-                <div class="col-md-9">
+        <!-- BRANDING -->
+        <div class="strata branding visible-md visible-lg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <p class="home-button-wrapper">
+                            <a class="home-button" href="<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a>
+                        </p>
+                    </div>
+                    <div class="col-md-9">
                         <div class="desktop-navbar">
                             <!-- Brand and toggle get grouped for better mobile display -->
                             <?php wp_nav_menu(array('theme_location' => 'primary-menu')); ?>
@@ -99,8 +99,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- PAGE CONTENT -->
-    <div class="page-content">
-        <div class="page-content-inner">
+
+        <!-- PAGE CONTENT -->
+        <div class="page-content">
+            <div class="page-content-inner">

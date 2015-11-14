@@ -40,35 +40,6 @@ jQuery(function ($) {
             m.set('bars');
             $('.mobile-navbar').css('top',0);
         }
-
-        /* STICKY SIDEBAR ========================== */
-
-
-        var $sidebar = $('div.sidebar.sidebar-product');
-        var sidebarOffset = $sidebar.offset();
-        var sidebarTopInitial = sidebarOffset.top;
-        var sidebarLeftInitial = sidebarOffset.left;
-
-        $(window).scroll(function() {
-            // only on the desktop...
-            if ($(window).width() > 992) {
-                var sidebarHeight = $sidebar.height();
-                var $rowContainer = $sidebar.closest('.row');
-                var rowContainerOffset = $rowContainer.offset();
-                var rowContainerTop = rowContainerOffset.top;
-                var rowContainerHeight = $rowContainer.height();
-                var currentPos = $(window).scrollTop();
-                var onPoint = rowContainerTop;
-                var offPoint = rowContainerTop + rowContainerHeight - sidebarHeight;
-                if (currentPos < onPoint) {
-                    $sidebar.offset({left: sidebarLeftInitial, top: sidebarTopInitial });
-                } else if ( currentPos > offPoint ) {
-                    $sidebar.offset({left: sidebarLeftInitial, top: offPoint });
-                } else {
-                    $sidebar.offset({left: sidebarLeftInitial, top: currentPos });
-                }
-            }
-        });
     
 	});
 
