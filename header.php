@@ -61,6 +61,13 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<!-- BACK TO TOP -->
+<a name="top" class="top"> </a>
+<div class="back-to-top-wrapper">
+    <div class="back-to-top"><a href="#top"><i class="i i-graphic-13 i-color-3 i-size-25px"> </i><br>Return to top</a></div>
+</div>
+
 <div class="page-container">
     <div class="page-inner">
 

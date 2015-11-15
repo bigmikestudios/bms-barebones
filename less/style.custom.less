@@ -265,3 +265,35 @@ body.page-template-template-gallery {
   margin-top: @space;
 }
 
+// ========================================================================================================= BACK TO TOP
+
+@back-to-top-height: 60px;
+.back-to-top-wrapper {
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+  bottom: 0;
+  height: @back-to-top-height;
+  .back-to-top {
+    width: 100%;
+    height: @back-to-top-height;
+    background: @black;
+    margin-top: @back-to-top-height;
+    transition: margin-top .5s;
+    text-align: center;
+    padding-top: 0;
+    a, a:focus, a:active, a:hover {
+      color: @white;
+      opacity: 1;
+      font-weight: 400;
+      i {
+        margin-bottom: -13px;
+      }
+    }
+  }
+}
+body.scroll-started .back-to-top-wrapper {
+  .back-to-top {
+    margin-top: 0px;
+  }
+}
