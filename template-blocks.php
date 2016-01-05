@@ -1,12 +1,12 @@
 <?php
 /*
- * xTemplate Name: Blocks
+ * xTemplatexName: Blocks
  */
 ?>
 <?php get_header(); ?>
 <div class="container">
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-2 visible-md visible-lg">
       <?php get_sidebar(); ?>
     </div>
     <div class="col-md-10">

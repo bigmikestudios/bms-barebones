@@ -11,15 +11,22 @@ jQuery(function ($) {
 	$(document).ready(function() {
 
         /* SWIPEBOX ========================== */
-        $( '.swipebox' ).swipebox();
+        //$( '.swipebox' ).swipebox();
+
+        /* LIGHTGALLERY ========================== */
+        $(".lightgallery").lightGallery();
 
         /* MARKA ICON ========================== */
         var m = new Marka('#open_close');
-        m.set('bars').color('#000000').size(40);
+        m.set('bars').color('#a2acb4').size(30);
 
         /* MMENU STUFF ========================== */
         $("#mmenu")
-            .mmenu({ classNames: { selected: "current-menu-item" } } )
+            .mmenu({
+                offCanvas: {
+                    position  : "right"
+                },
+                classNames: { selected: "current-menu-item" } } )
             .on("opening.mm", function() { mmenu_opening();  } )
             .on("opened.mm", function() { mmenu_opened();  } )
             .on("closing.mm", function() { mmenu_closing();  } )
@@ -41,7 +48,7 @@ jQuery(function ($) {
             $('.mobile-navbar').css('top',0);
         }
 
-        /* SCROLL TO TOP BUTTON ========================== */
+        /* SCROLL TO TOP BUTTON ==========================
 
         function debounce(func, wait, immediate) {
             var timeout;
@@ -66,7 +73,7 @@ jQuery(function ($) {
             }
         }, 250);
 
-        window.addEventListener('scroll', checkFixNav);
+        window.addEventListener('scroll', checkFixNav); */
 
         /* ANIMATE TO NAMED ANCHORS ========================== */
 
@@ -83,7 +90,12 @@ jQuery(function ($) {
             }, 250) // how ever fast you want it to scroll.
 
         });
-    
+        // ==================================================
+
+        $('#ral-site-search').on('shown.bs.modal', function () {
+            $('#ral-site-search .search-field').focus();
+        })
+
 	});
 
 });

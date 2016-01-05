@@ -16,7 +16,7 @@ class SH_BreadCrumbWalker extends Walker{
      * delimiter for crumbs
      * @var string
      */
-    var $delimiter = ' &raquo; ';
+    var $delimiter = ' <span class="seperator">&gt;</span> ';
 
     /**
      * @see Walker::start_el()

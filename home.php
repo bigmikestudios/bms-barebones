@@ -1,23 +1,21 @@
-<?php
-$blog_page_id = get_option( 'page_for_posts' );
-$blog_page = get_post($blog_page_id);
-get_header(); ?>
-
 <?php get_header(); ?>
-
-<div class="strata section-title">
-    <h1>Blog</h1>
-</div>
 
 <div class="strata content blog-list">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <?php while ( have_posts() ) : the_post(); ?>
-                    <?php get_template_part('contentlisting', $post->post_type); ?>
-                <?php endwhile; ?>
+            <div class="col-md-2 visible-md visible-lg">
+                <?php get_sidebar($post->post_type); ?>
+            </div>
+            <div class="col-md-10">
                 <div class="row">
-                    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+                    <div class="col-md-11">
+                        <?php echo apply_filters('the_content', get_field('news_page_content', 'options')); ?>
+                        <?php while ( have_posts() ) : the_post(); ?>
+                            <?php get_template_part('contentlisting', $post->post_type); ?>
+
+
+                        <?php endwhile; ?>
+
                         <?php
                         // Pagination:
                         global $wp_query;
@@ -29,7 +27,12 @@ get_header(); ?>
                             'total' => $wp_query->max_num_pages
                         ) );
                         ?>
+
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+                         </div>
                 </div>
             </div>
         </div>

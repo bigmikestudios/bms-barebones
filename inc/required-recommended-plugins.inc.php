@@ -20,7 +20,7 @@ add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
  * TGM_Plugin_Activation class constructor.
  */
 function my_theme_register_required_plugins() {
-    $premium_wp_plugins_dir = "file:///Users/mikelathrop/Dropbox/1work/Install%5C%5C%20Media/WP%5C%5C%20Addons";
+    $premium_wp_plugins_dir = "http://plugins.dev";
     $premium_wp_plugins_path = "/Users/mikelathrop/Dropbox/1work/Install%5C%5C%20Media/WP%5C%5C%20Addons";
     /**
      * Array of plugin arrays. Required keys are name and slug.
@@ -53,8 +53,8 @@ function my_theme_register_required_plugins() {
         array(
             'name'      => 'Advanced Custom Fields Pro',
             'slug'      => 'advanced-custom-fields-pro',
-            'source'             =>"/".$premium_wp_plugins_path . '/advanced-custom-fields-pro.zip',
-            'external_url'    => $premium_wp_plugins_dir . '/advanced-custom-fields-pro.zips',
+            //'source'             =>"/".$premium_wp_plugins_path . '/advanced-custom-fields-pro.zip',
+            'external_url'    => $premium_wp_plugins_dir . '/advanced-custom-fields-pro.zip',
             'required'  => true,
         ),
 
@@ -140,8 +140,8 @@ function my_theme_register_required_plugins() {
         array(
             'name'      => 'WP Migrate Pro',
             'slug'      => 'wp-migrate-db',
-            'source'             =>"/".$premium_wp_plugins_path . '/wp-migrate-db-pro.zip',
-            'external_url'    => $premium_wp_plugins_dir . '/wp-migrate-db',
+            //'source'             =>"/".$premium_wp_plugins_path . '/wp-migrate-db-pro.zip',
+            'external_url'    => $premium_wp_plugins_dir . '/wp-migrate-db-pro-1.4.4.zip',
             'required'  => false,
         ),
 

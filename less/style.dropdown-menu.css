@@ -37,7 +37,7 @@
   /* Firefox 10+, Firefox on Android */
   filter: gray;
   /* IE6-9 */
-  -webkit-filter: grayscale(100%);
+  -webkit-fiyilter: grayscale(100%);
   /* Chrome 19+, Safari 6+, Safari 6+ iOS */
 }
 .mark {
@@ -49,15 +49,16 @@
   clear: both;
 }
 .text-shadow {
-  text-shadow: 0px 0px 18px #000000;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
 .body-font {
-  font-family: 'Lato', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .headline-font {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
+  font-family: 'DIN Next W06', sans-serif;
+  font-weight: normal;
   text-transform: uppercase;
+  letter-spacing: .03em;
 }
 .greyscale {
   -webkit-filter: grayscale(100%);
@@ -73,7 +74,7 @@
   float: left;
 }
 .desktop-navbar ul.menu > li > a[href]:hover {
-  opacity: 0.7;
+  opacity: 0.5;
 }
 .desktop-navbar ul.menu > li > a:hover {
   cursor: pointer;

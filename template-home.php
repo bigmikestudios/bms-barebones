@@ -5,132 +5,72 @@
 get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 
-    <!-- === FEATURED IMAGE === -->
+    <div class="hero">
 
-    <?php
-    $featured_image = false;
-    $featured_image = get_post_thumbnail_url($post->ID, 'max' )  ;
-    get_template_part ('snip_featured_image'); ?>
+        <!-- IMAGE -->
+        <img class="hero-image" src="<?php echo get_post_thumbnail_url($post->ID, 'max' ); ?>" />
 
-
-    <!-- === TITLE === -->
-
-    <?php
-    if (get_field('show_title') == true):
-        $display_title = get_field('page_display_title');
-        $title = ($display_title) ? $display_title : get_the_title();
-        ?>
-    <div class="strata section-title">
-        <h1><?php echo $title ?></h1>
-    </div>
-    <?php endif; ?>
-
-
-    <!-- === CONTENT === -->
-
-    <?php $the_content = get_the_content(); if ($the_content): ?>
-        <div class="strata content">
-            <div class="container">
-                <div class="col-md-8 col-md-offset-2">
-                    <?php echo apply_filters('the_content', $the_content) ?>
-                </div>
-            </div>
-        </div>
-    <?php endif; ?>
-
-    <!-- === PRODUCTS === -->
-
-    <div class="strata section-title">
-        <h2>Products</h2>
-    </div>
-
-    <div class="strata product-category-gallery">
-        <div class="container-fluid">
-            <div class="gallery">
-            <div class="row">
-                <?php
-                $terms = get_terms('product_categories', array(
-                    'hide_empty' => false
-                ));
-                foreach($terms as $term): ?>
-                <?php
-                $term_image = get_field('term_image', $term);
-                if (!$term_image) {
-                    $term_image = get_stylesheet_directory_uri()."/img/placeholder.jpg";
-                } else {
-                    $term_image = $term_image['sizes']['sm'];
-                }
-                ?>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="gallery-item">
-                            <a href="<?php echo get_term_link($term); ?>">
-                                <?php echo image_div($term_image, "7x5"); ?>
-                                <p><?php echo $term->name; ?></p>
-                            </a>
-                        </div>
-                    </div>
+        <!-- BUTTONS ON THE LEFT -->
+        <?php $home_page_image_buttons = get_field('home-page-image-buttons'); if ($home_page_image_buttons): ?>
+            <ul class="hero-buttons">
+                <?php foreach($home_page_image_buttons as $button): ?>
+                    <li>
+                        <a href="<?php echo $button['link']; ?>"
+                            <?php if ($button['color']): ?>
+                                style="background-color: <?php echo $button['color']; ?>"
+                            <?php endif; ?>>
+                            <?php echo  $button['label_line_1']; ?>
+                            <?php if ($button['label_line_2']): ?>
+                                <br><?php echo $button['label_line_2']; ?>
+                            <?php endif; ?>
+                        </a>
+                    </li>
                 <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+
+        <!-- TEXT OVERLAY -->
+        <?php $content = get_field('image_text_overlay'); if ($content): ?>
+            <div class="hero-text-overlay">
+                <?php echo $content; ?>
             </div>
-            </div>
-        </div>
+        <?php endif; ?>
+
     </div>
 
-    <?php $the_content = get_field('products_content'); if ($the_content): ?>
-        <div class="strata content">
-            <div class="container">
-                <div class="col-md-12">
-                    <?php echo apply_filters('the_content', $the_content) ?>
+    <!-- TEASERS -->
+    <?php $teasers = get_field('teasers'); if ($teasers): ?>
+        <?php $i=0; foreach ($teasers as $teaser): ?>
+
+
+            <?php if ($teaser['color']): ?>
+                <style scoped>
+                    .home-page-teaser.home-page-teaser-<?php echo $i; ?> {
+                        background-color: <?php echo $teaser['color']; ?>
+                    }
+                    @media screen and (min-width: 992px) {
+                        .home-page-teaser.home-page-teaser-<?php echo $i; ?> .teaser-content {
+                            background-color: <?php echo hex2rgba($teaser['color'], 0.7); ?>
+                        }
+                    }
+                </style>
+            <?php endif; ?>
+            <div class="home-page-teaser home-page-teaser-<?php echo $i; ?>">
+
+                <div class="teaser-img" style="background-image: url('<?php echo $teaser['image']['sizes']['max']; ?>')"> </div>
+
+                <div class="teaser-content">
+                    <?php echo $teaser['content']; ?>
+                    <a class="teaser-button" href="<?php echo $teaser['link']; ?>">
+                        <?php echo $teaser['button_label']; ?> <i class="fa fa-arrow-right"></i>
+                    </a>
                 </div>
+
+
             </div>
-        </div>
-    <?php endif; ?>
-
-    <!-- === SERVICES === -->
-
-    <div class="strata section-title">
-        <h2>Services</h2>
-    </div>
-
-    <?php $the_content = get_field('services_content_top'); if ($the_content): ?>
-        <div class="strata content services-content-top">
-            <div class="container">
-                <div class="col-md-12">
-                    <?php echo apply_filters('the_content', $the_content) ?>
-                </div>
-            </div>
-        </div>
-    <?php endif; ?>
-
-    <?php $img = get_field('services_image'); if ($img):
-        $img_src = $img['sizes']['max'];
-        ?>
-        <div class="strata content services-image">
-            <img class="img-responsive" src="<?php echo $img_src; ?>"/>
-        </div>
-    <?php endif; ?>
-
-    <?php $the_content = get_field('services_content_bottom'); if ($the_content): ?>
-        <div class="strata content services-content-bottom">
-            <div class="container">
-                <div class="col-md-8 col-md-offset-2">
-                    <?php echo apply_filters('the_content', $the_content) ?>
-                </div>
-            </div>
-        </div>
-    <?php endif; ?>
-
-    <!-- === PROMOTIONS === -->
-
-    <?php if (get_field('show_promotion') ==  true): ?>
-    <div class="strata section-title">
-        <h2>Sales &amp; Promotions</h2>
-    </div>
-
-        <?php get_template_part ('snip_social'); ?>
-        <?php get_template_part ('snip_promotion', 'panels'); ?>
-
+        <?php $i++; endforeach; ?>
     <?php endif; ?>
 
 
-  <?php endwhile; ?>
+<?php endwhile; ?>
 <?php get_footer(); ?>

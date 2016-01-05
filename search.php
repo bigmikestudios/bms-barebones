@@ -3,7 +3,10 @@
 <div class="strata search-results-strata">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 content">
+      <div class="col-md-2">
+
+      </div>
+      <div class="col-md-9 content">
         <?php if ( have_posts() ) : ?>
         <h1>Search Results for
           <?php the_search_query(); ?>
@@ -34,9 +37,6 @@
         <?php get_search_form(); ?>
         <?php endif; ?>
       </div>
-        <div class="col-md-4 sidebar">
-            <?php get_template_part('sidebar', 'search'); ?>
-        </div>
     </div>
   </div>
 </div>
